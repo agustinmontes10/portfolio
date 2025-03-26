@@ -11,7 +11,7 @@ import ExperienceSection from "./components/ExperienceSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#121212] to-[#041625] text-white">
+    <div className="min-h-screen text-gray-700 bg-[#ffffff]">
       <Navbar />
 
       <HeroSection />

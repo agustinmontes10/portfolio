@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import { ArrowUpLeft } from "lucide-react";
 
 const projects = [
     {
         id: 1,
         title: "E-commerce Platform",
         description: "Plataforma de comercio electrónico con React y Node.js",
-        image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800",
+        image: "/assets/projects/project-seguros.png",
         tags: ["React", "Node.js", "MongoDB"]
     },
     {
@@ -21,24 +22,38 @@ const projects = [
         description: "Diseño y desarrollo de portfolio interactivo",
         image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
         tags: ["React", "TailwindCSS"]
-    }
+    },
+    {
+        id: 4,
+        title: "E-commerce Platform",
+        description: "Plataforma de comercio electrónico con React y Node.js",
+        image: "/assets/projects/project-seguros.png",
+        tags: ["React", "Node.js", "MongoDB"]
+    },
 ];
 
 const ProjectsSection = () => {
     return (
-        <section className="py-20 px-6">
+        <section className="py-20 px-6 bg-[#e3f3d3]">
             <div className="container mx-auto max-w-[80vw]">
-                <h2 className="text-4xl font-bold text-center mb-16">Proyectos</h2>
-                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="w-full flex justify-center">
+                    <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
+                        Projects
+                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-[#7ab93e] -z-10'></span>
+                    </h2>
+                </div>
+                <div className="flex flex-wrap justify-center gap-12">
                     {projects.map((project, index) => (
-                        <Link key={index} href={`/projects/${project.id}`}>
-                            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden transform hover:scale-105 transition-all cursor-pointer">
+                        <Link className={`transform transition-all project cursor-pointer w-[45%] ${index % 2 !== 0 ? 'mt-30' : ''}`} key={index} href={`/projects/${project.id}`}>
+                            <div 
+                                className={`bg-[#1e2939] rounded-xl overflow-hidden`}
+                            >
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-48 object-cover"
+                                    className="w-full h-[300px] object-cover"
                                 />
-                                <div className="p-6">
+                                <div className="p-6 project-information">
                                     <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                                     <p className="text-gray-400 mb-4">{project.description}</p>
                                     <div className="flex flex-wrap gap-2">
@@ -51,6 +66,10 @@ const ProjectsSection = () => {
                                             </span>
                                         ))}
                                     </div>
+
+                                    <div className="arrow">
+                                        <ArrowUpLeft  />
+                                    </div>
                                 </div>
                             </div>
                         </Link>
@@ -58,7 +77,7 @@ const ProjectsSection = () => {
                 </div>
             </div>
         </section>
-    )
+    );
 };
 
 export default ProjectsSection;

@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: poppins;
+}
+
+.avatar {
+  background-image: url('/assets/avatar.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 400px;
+  position: relative;
+}
+
+.eyes-container {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  position: absolute;
+  top: 38%;
+  left: 18%;
+}
+
+.eyes-left,
+.eyes-right {
+  padding-top: 4px;
+  border-top: 5px solid black;
+  border-radius: 15px;
+}
+
+.eyes-left {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 7px;
+}
+
+.eyes-right {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 15px;
+}
+
+.eyeLeft,
+.eyeRight {
+  width: 50px;
+  height: 27px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 100%;
+  position: relative;
+  overflow: hidden;
+  /* border-top: 4px solid black; */
+}
+
+.eyeLeft {
+  transform: rotate(-2deg);
+}
+
+.eyeRight {
+  transform: rotate(2deg);
+}
+
+.iris {
+  width: 20px;
+  background-color: rgb(20, 64, 152);
+  border-radius: 100%;
+  height: 20px;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transition: transform 0.1s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pupil {
+  width: 50%;
+  height: 50%;
+  background-color: black;
+  border-radius: 100%;
+}
+
+.project {
+  .project-information {
+    position: relative;
+
+    .arrow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 20px;
+      transition: 0.7s all ease;
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100px;
+      width: 125px;
+      bottom: 0;
+      right: 0;
+      background-color: #e3f3d3;
+      border-top-left-radius: 50px;
+      transition: 0.7s all ease;
+    }
+  }
+
+
+
+  &:hover {
+    .project-information::before {
+      transform: scale(1.5);
+    }
+
+    .arrow {
+      transform: scale(1.2);
+
+      margin-right: 30px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+
+
+
+//SKILLS SECTION
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce-icon {
+  animation: bounce 1.4s infinite ease-in-out;
+}
