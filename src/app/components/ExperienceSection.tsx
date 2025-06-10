@@ -20,7 +20,7 @@ const ExperienceSection = () => {
                 <div className="w-full flex justify-center">
                     <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
                         Experiencia
-                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-[#e3f3d3] -z-10'></span>
+                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-primary -z-10'></span>
                     </h2>
                 </div>
                 <div className="container mx-auto">

@@ -1,40 +1,12 @@
 import Link from 'next/link';
 import { ArrowUpLeft } from "lucide-react";
+import { projects } from '../data/projectsData';
 
-const projects = [
-    {
-        id: 1,
-        title: "E-commerce Platform",
-        description: "Plataforma de comercio electrónico con React y Node.js",
-        image: "/assets/projects/project-seguros.png",
-        tags: ["React", "Node.js", "MongoDB"]
-    },
-    {
-        id: 2,
-        title: "App de Gestión",
-        description: "Sistema de gestión empresarial completo",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-        tags: ["TypeScript", "React", "PostgreSQL"]
-    },
-    {
-        id: 3,
-        title: "Portfolio Personal",
-        description: "Diseño y desarrollo de portfolio interactivo",
-        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
-        tags: ["React", "TailwindCSS"]
-    },
-    {
-        id: 4,
-        title: "E-commerce Platform",
-        description: "Plataforma de comercio electrónico con React y Node.js",
-        image: "/assets/projects/project-seguros.png",
-        tags: ["React", "Node.js", "MongoDB"]
-    },
-];
+
 
 const ProjectsSection = () => {
     return (
-        <section className="py-20 px-6 bg-[#e3f3d3]">
+        <section className="py-20 px-6 bg-primary">
             <div className="container mx-auto max-w-[80vw]">
                 <div className="w-full flex justify-center">
                     <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
@@ -46,7 +18,7 @@ const ProjectsSection = () => {
                     {projects.map((project, index) => (
                         <Link className={`transform transition-all project cursor-pointer w-[45%] ${index % 2 !== 0 ? 'mt-30' : ''}`} key={index} href={`/projects/${project.id}`}>
                             <div 
-                                className={`bg-[#1e2939] rounded-xl overflow-hidden`}
+                                className={`bg-gray-100 rounded-xl overflow-hidden`}
                             >
                                 <img
                                     src={project.image}

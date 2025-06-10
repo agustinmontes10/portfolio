@@ -21,7 +21,7 @@ export default function Home() {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="bg-black/50 backdrop-blur-sm py-8">
+      <footer className="bg-primary py-8">
         <div className="container mx-auto px-6 text-center text-gray-400">
           <p>© 2025 Portfolio. Todos los derechos reservados.</p>
         </div>

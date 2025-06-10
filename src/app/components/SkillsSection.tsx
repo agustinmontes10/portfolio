@@ -1,4 +1,4 @@
-import { Brush, Code, Code2, Database, Globe, Palette } from "lucide-react";
+import { Code } from "lucide-react";
 import { useState } from "react";
 
 const skills = {
@@ -122,42 +122,38 @@ const SkillsSection = () => {
     const [section, setSection] = useState<'Frontend' | 'Backend' | 'Others'>('Frontend');
 
     return (
-        <section className="py-20 px-6 bg-[#00000059]"
-                style={{
-                    background: "linear-gradient(to bottom, #ffffff 50%, #e3f3d3 50%)",
-                }}
-        >
+        <section className="py-20 px-6 bg-gradient-to-b from-white from-50% to-primary to-50%" >
             <div className="container mx-auto max-w-[80vw] flex flex-col items-center">
                 <div className="w-full flex justify-center">
                     <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
                         Habilidades
-                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-[#e3f3d3] -z-10'></span>
+                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-primary -z-10'></span>
                     </h2>
                 </div>
-                <div className="w-[60%] flex justify-center text-gray-200 bg-[#11111a] border-1 border-[#1d1d27] rounded-xl p-4 shadow-[7px_7px_30px_3px_#0e1418]">
+                <div className="w-[60%] flex justify-center text-gray-400 bg-[#ffffff] shadow-lg border-1 border-gray-100 rounded-xl p-6">
                     <div className="flex flex-col gap-4 pt-2 w-[80%] md:w-[30%]">
                         {['Frontend', 'Backend', 'Others'].map((sec) => (
                             <div
                                 key={sec}
                                 onMouseEnter={() => setSection(sec as 'Frontend' | 'Backend' | 'Others')}
-                                className={`p-5 mx-2 rounded-xl flex gap-4 cursor-pointer items-center font-semibold ${section === sec ? 'bg-[#171723]' : ''}`}
+                                className={`p-5 mx-2 rounded-xl flex gap-4 cursor-pointer items-center font-semibold ${section === sec ? 'bg-gray-100' : ''}`}
                             >
-                                <div className={`${section == sec ? 'bg-[#2a2d66]' : 'bg-gray-700'} rounded-2xl p-2`}>
-                                    <Code size={24} />
+                                <div className={`${section == sec ? 'bg-gray-400' : 'bg-gray-200'} rounded-2xl p-2`}>
+                                    <Code size={24} className={`${section == sec ? 'text-gray-300' : 'text-gray-400'}`} />
                                 </div>
                                 {sec}
                             </div>
                         ))}
                     </div>
 
-                    <div className="w-full flex justify-center bg-[#060d18] rounded-lg">
+                    <div className="w-full flex justify-center bg-gray-100 rounded-lg">
                         <div className="flex gap-10 justify-center p-16 flex-wrap">
                             {skills[section].map((skill, index) => (
                                 <div
                                     key={index}
                                     className="flex flex-col items-center"
                                 >
-                                    <div className="text-blue-400 mb-4 w-12 bounce-icon">{skill.icon}</div>
+                                    <div className="text-blue-400 mb-4 w-12 animate-bounce">{skill.icon}</div>
                                     <h3 className="text-xl font-medium mb-2">{skill.title}</h3>
                                 </div>
                             ))}
