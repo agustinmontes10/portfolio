@@ -1,6 +1,6 @@
 "use client";
 
-import { ProjectProps, projects } from "@/app/data/projectsData";
+import { ProjectProps, projects } from "../../../../data/projectsData";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
