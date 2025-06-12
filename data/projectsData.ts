@@ -41,7 +41,7 @@ export const projects: ProjectProps[] = [
         title: "Portfolio Personal",
         description: "Diseño y desarrollo de portfolio interactivo",
         text: "Plataforma de comercio electrónico desarrollada con tecnologías modernas. React se utilizó para construir una interfaz de usuario dinámica y responsiva, Node.js para manejar la lógica del servidor y MongoDB como base de datos para almacenar información de productos y usuarios.",
-        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+        image: "/assets/projects/carpoolingApp.png",
         tags: ["React", "TailwindCSS"],
         images: [],
     },

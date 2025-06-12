@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ProjectProps, projects } from "../../../../data/projectsData";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -38,7 +39,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                         >
                             {project.images.map((image, index) => (
                                 <SwiperSlide key={index}>
-                                    <img src={image} alt={`Imagen ${index + 1}`} className="w-full h-auto object-cover cursor-pointer" />
+                                    <Image width={400} height={400} src={image} alt={`Imagen ${index + 1}`} className="w-full h-auto object-cover cursor-pointer" />
                                 </SwiperSlide>
                             ))}
                             {/* <SwiperSlide>Slide 1</SwiperSlide>
