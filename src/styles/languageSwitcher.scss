@@ -1,0 +1,50 @@
+.language-switch__flags {
+  display: flex;
+  gap: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px -0.062em 0.062em, rgba(255, 255, 255, 0.94) 0px 0.062em 0.125em;
+  border-radius: 70px;
+  padding: 4px;
+}
+
+.bg-es {
+    transition: all 1s ease;
+    background-color: #c55026;
+}
+
+.bg-en {
+    transition: all 1s ease;
+    background-color: #444664;
+}
+
+.flag-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  box-shadow: 0 0 0.2em rgba(0,0,0,0.15);
+}
+
+.flag-bg-es {
+  background: radial-gradient(circle, #ffc400 60%, #d32f2f 100%);
+}
+
+.flag-bg-en {
+  background: radial-gradient(circle, #1976d2 60%, #fff 100%);
+}
+
+.flag-selectable {
+  cursor: pointer;
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.flag-selectable.inactive {
+  opacity: 0.3;
+  filter: grayscale(80%);
+}
+
+.flag-selectable.active {
+  opacity: 1;
+  filter: none;
+}

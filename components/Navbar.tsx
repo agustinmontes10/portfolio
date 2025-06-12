@@ -1,9 +1,13 @@
 "use client"
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState('inicio');
     const [isScrolled, setIsScrolled] = useState(false);
+    const { t } = useTranslation()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,22 +27,26 @@ const Navbar = () => {
         >
             <div className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold">Portfolio</span>
+                    <span className="text-2xl font-bold">{t('welcome')}</span>
                     <div className="hidden md:flex space-x-8 font-medium text-lg">
                         {['Inicio', 'Sobre Mí', 'Proyectos', 'Contacto'].map((item) => (
                             <button
-                            key={item}
-                            onClick={() => setActiveSection(item.toLowerCase())}
-                            className={`relative group transition-colors p-4 ${
-                                activeSection === item.toLowerCase() ? 'text-blue-400' : ''
-                            }`}
-                        >
-                            {item}
-                            <span className="absolute left-0 bottom-4 -z-1 w-full h-[20px] bg-[#ede488] rounded blur-[2px] skew-x-[15deg] transition-transform scale-x-0 group-hover:scale-x-100 origin-left duration-500"></span>
-                        </button>
-                        
+                                key={item}
+                                onClick={() => setActiveSection(item.toLowerCase())}
+                                className={`relative group transition-colors p-4 ${activeSection === item.toLowerCase() ? 'text-blue-400' : ''
+                                    }`}
+                            >
+                                {item}
+                                <span className="absolute left-0 bottom-4 -z-1 w-full h-[20px] bg-[#ede488] rounded blur-[2px] skew-x-[15deg] transition-transform scale-x-0 group-hover:scale-x-100 origin-left duration-500"></span>
+                            </button>
+
                         ))}
                     </div>
+                    <div className="flex gap-4">
+                        <LanguageSwitcher />
+                        <ThemeSwitcher />
+                    </div>
+
                 </div>
             </div>
         </nav>
