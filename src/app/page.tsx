@@ -12,7 +12,7 @@ import ContactSection from "../../components/ContactSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-gray-700 bg-[#ffffff]">
+    <div className="min-h-screen text-gray-300 bg-[linear-gradient(47deg,_#141526,_#010214)]">
       <Navbar />
 
       <HeroSection />
@@ -22,7 +22,7 @@ export default function Home() {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="bg-primary py-8">
+      <footer className="py-8">
         <div className="container mx-auto px-6 text-center text-gray-400">
           <p>© 2025 Portfolio. Todos los derechos reservados.</p>
         </div>

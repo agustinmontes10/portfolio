@@ -21,7 +21,7 @@ const fadeVariantLeftRight: Variants = {
 
 const ProjectsSection = () => {
   return (
-    <section className="py-20 px-6 bg-primary">
+    <section className="py-20 px-6">
       <div className="container mx-auto max-w-[80vw]">
         <div className="w-full flex justify-center">
           <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
@@ -49,7 +49,7 @@ const ProjectsSection = () => {
                       height={300}
                       className="w-full h-[300px] object-cover"
                     />
-                    <div className="p-6 project-information">
+                    <div className="p-6 project-information bg-[#13203a]">
                       <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                       <p className="text-gray-400 mb-4">{project.description}</p>
                       <div className="flex flex-wrap gap-2">

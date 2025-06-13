@@ -25,7 +25,7 @@ export default function LanguageSwitcher() {
 
     return (
         <div className='flex gap-2 items-center'>
-            <div className={`language-switch__flags ${i18n.language === 'en' ? 'bg-en' : 'bg-es'} `}>
+            <div className={`language-switch__flags `}>
                 <div
                     className={`flag-bg flag-bg-es flag-selectable ${!checked ? 'active' : 'inactive'}`}
                     onClick={() => handleSelect('es')}

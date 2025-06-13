@@ -1,30 +1,14 @@
 "use client"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
-import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState('inicio');
-    const [isScrolled, setIsScrolled] = useState(false);
     const { t } = useTranslation()
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
     return (
-        <nav
-            className={`fixed w-full z-50 transition-colors duration-700 ${isScrolled ? 'bg-primary' : 'bg-transparent'
-                }`}
-        >
+        <nav className={`fixed w-full z-50 transition-colors duration-700`} >
             <div className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold">{t('welcome')}</span>
@@ -44,7 +28,7 @@ const Navbar = () => {
                     </div>
                     <div className="flex gap-4">
                         <LanguageSwitcher />
-                        <ThemeSwitcher />
+                        {/* <ThemeSwitcher /> */}
                     </div>
 
                 </div>

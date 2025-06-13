@@ -1,3 +1,6 @@
+'use client'
+import { motion } from 'framer-motion'
+
 const experience = [
     {
         title: 'Desarrollador Frontend',
@@ -13,34 +16,42 @@ const experience = [
     }
 ]
 
+const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 }
+}
+
 const ExperienceSection = () => {
     return (
         <section className="py-20 px-6">
-            <div className="container mx-auto max-w-[60vw]">
-                <div className="w-full flex justify-center">
-                    <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
+            <div className="container mx-auto max-w-4xl">
+                <div className="text-center mb-16">
+                    <h2 className="text-5xl font-extrabold relative inline-block">
                         Experiencia
-                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-primary -z-10'></span>
+                        <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded"></span>
                     </h2>
                 </div>
-                <div className="container mx-auto">
-                    <div className="relative">
-                        <div className="border-l-2 border-gray-400 absolute h-full left-0 transform -translate-x-1/2"></div>
-                        <div className="space-y-8">
-                            {experience.map((exp, index) => (
-                                <div key={index} className="relative flex flex-col space-x-8">
-                                    <div className="bg-gray-900 w-6 h-6 rounded-full border-2 border-gray-400 absolute left-0 transform -translate-x-1/2"></div>
-                                    <div className="px-8">
-                                        <h3 className="text-3xl font-bold mb-2">{exp.title}</h3>
-                                        <p className="text-gray-400 mb-4">{exp.company}</p>
-                                        <p className="text-gray-400 mb-4">{exp.date}</p>
-                                    </div>
-                                    <div className="px-8">
-                                        <p className="text-gray-400">{exp.description}</p>
-                                    </div>
+                <div className="relative">
+                    <div className="absolute left-4 top-0 bottom-0 w-1 bg-blue-400 rounded"></div>
+                    <div className="space-y-12">
+                        {experience.map((exp, index) => (
+                            <motion.div
+                                key={index}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                variants={fadeUp}
+                                className="relative pl-12"
+                            >
+                                <div className="absolute left-4 top-2 w-4 h-4 bg-emerald-500 border-4 border-white rounded-full shadow-md"></div>
+                                <div className="bg-[linear-gradient(45deg,_#13203a,_transparent)] p-6 rounded-xl shadow-md">
+                                    <h3 className="text-2xl font-semibold">{exp.title}</h3>
+                                    <p className="text-sm text-blue-400">{exp.company} · {exp.date}</p>
+                                    <p className="text-gray-300 mt-4">{exp.description}</p>
                                 </div>
-                            ))}
-                        </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -48,4 +59,4 @@ const ExperienceSection = () => {
     )
 }
 
-export default ExperienceSection;
+export default ExperienceSection

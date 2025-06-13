@@ -122,21 +122,21 @@ const SkillsSection = () => {
     const [section, setSection] = useState<'Frontend' | 'Backend' | 'Others'>('Frontend');
 
     return (
-        <section className="py-20 px-6 bg-gradient-to-b from-white from-50% to-primary to-50%" >
+        <section className="py-20 px-6" >
             <div className="container mx-auto max-w-[80vw] flex flex-col items-center">
                 <div className="w-full flex justify-center">
                     <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
                         Habilidades
-                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-primary -z-10'></span>
+                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 -z-10'></span>
                     </h2>
                 </div>
-                <div className="w-[60%] flex justify-center text-gray-400 bg-[#ffffff] shadow-lg border-1 border-gray-100 rounded-xl p-6">
+                <div className="w-[60%] flex justify-center text-gray-400 bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border-2 border-[#13203a] rounded-xl p-6">
                     <div className="flex flex-col gap-4 pt-2 w-[80%] md:w-[30%]">
                         {['Frontend', 'Backend', 'Others'].map((sec) => (
                             <div
                                 key={sec}
                                 onMouseEnter={() => setSection(sec as 'Frontend' | 'Backend' | 'Others')}
-                                className={`p-5 mx-2 rounded-xl flex gap-4 cursor-pointer items-center font-semibold ${section === sec ? 'bg-gray-100' : ''}`}
+                                className={`p-5 mx-2 rounded-xl flex gap-4 cursor-pointer items-center font-semibold ${section === sec ? 'bg-[linear-gradient(45deg,_#152646,_transparent)]' : ''}`}
                             >
                                 <div className={`${section == sec ? 'bg-gray-400' : 'bg-gray-200'} rounded-2xl p-2`}>
                                     <Code size={24} className={`${section == sec ? 'text-gray-300' : 'text-gray-400'}`} />
@@ -146,7 +146,7 @@ const SkillsSection = () => {
                         ))}
                     </div>
 
-                    <div className="w-full flex justify-center bg-gray-100 rounded-lg">
+                    <div className="w-full flex justify-center rounded-lg bg-[#091223]">
                         <div className="flex gap-10 justify-center p-16 flex-wrap">
                             {skills[section].map((skill, index) => (
                                 <div

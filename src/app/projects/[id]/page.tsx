@@ -55,7 +55,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                         <p className="mt-10">{project.text}</p>
                         <div className="flex gap-2 mt-10">
                             {project?.tags.map((tag, index) => (
-                                <span key={index} className="bg-primary text-gray-700 px-4 py-1 rounded-full text-sm">{tag}</span>
+                                <span key={index} className="text-gray-700 px-4 py-1 rounded-full text-sm">{tag}</span>
                             ))}
                         </div>
                         <div className="flex gap-8 mt-10">
@@ -75,7 +75,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                     </div>
                 </div>
             </div>
-            <footer className="bg-primary py-8">
+            <footer className="py-8">
                 <div className="container mx-auto px-6 text-center text-gray-400">
                     <p>© 2025 Portfolio. Todos los derechos reservados.</p>
                 </div>

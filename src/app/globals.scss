@@ -59,7 +59,7 @@ body {
       width: 125px;
       bottom: 0;
       right: 0;
-      background-color: var(--primary);
+      background-color: #0a0b1c;
       border-top-left-radius: 50px;
       transition: 0.7s all ease;
     }
@@ -83,4 +83,67 @@ body {
 
 .swiper-3d .swiper-slide-shadow {
   background: transparent;
+}
+
+.words {
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+}
+
+.words::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(var(--bg-color) 10%,
+      transparent 30%,
+      transparent 70%,
+      var(--bg-color) 90%);
+  z-index: 20;
+}
+
+.word {
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  color: #51a2ff;
+  animation: spin_4991 10s infinite;
+}
+
+@keyframes spin_4991 {
+  0% {
+    transform: translateY(0%);
+  }
+
+  12.5% {
+    transform: translateY(-100%);
+  }
+
+  25% {
+    transform: translateY(-200%);
+  }
+
+  37.5% {
+    transform: translateY(-300%);
+  }
+
+  50% {
+    transform: translateY(-400%);
+  }
+
+  62.5% {
+    transform: translateY(-500%);
+  }
+
+  75% {
+    transform: translateY(-600%);
+  }
+
+  87.5% {
+    transform: translateY(-700%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
 }

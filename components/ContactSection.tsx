@@ -17,12 +17,12 @@ const ContactSection = () => {
     }, [])
 
     return (
-        <section className="py-20 px-6 bg-gradient-to-b from-white from-50% to-primary to-50%" >
+        <section className="py-20 px-6" >
             <div className="container mx-auto max-w-[80vw] flex flex-col items-center">
                 <div className="w-full flex justify-center">
                     <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
                         Contacto
-                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-primary -z-10'></span>
+                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 -z-10'></span>
                     </h2>
                 </div>
                 <div className="flex gap-10">
@@ -55,7 +55,7 @@ const ContactSection = () => {
                             {animationData && <Lottie animationData={animationData} className="w-[70vw] md:w-[30vw]" />}
                         </div>
                     </div>
-                    <div className="bg-[#ffffff] shadow-lg border-1 border-gray-100 rounded-xl p-14">
+                    <div className="bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border-1 border-[#13203a] rounded-xl p-14">
                         <form className="grid grid-cols-2 gap-6">
                             <div className="relative w-[200px]">
                                 <label className="block text-md font-semibold mb-2">Nombre</label>
@@ -63,7 +63,7 @@ const ContactSection = () => {
                                     type="text"
                                     placeholder="Lionel"
                                     required
-                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none focus:bg-primary/20 peer"
+                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none peer"
                                 />
                                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-600 transition-all duration-1500 peer-focus:w-full"></span>
                             </div>
@@ -73,7 +73,7 @@ const ContactSection = () => {
                                     type="text"
                                     placeholder="Messi"
                                     required
-                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none focus:bg-primary/20 peer"
+                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none peer"
                                 />
                                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-600 transition-all duration-1500 peer-focus:w-full"></span>
                             </div>
@@ -83,7 +83,7 @@ const ContactSection = () => {
                                     type="email"
                                     placeholder="example@gmail.com"
                                     required
-                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none focus:bg-primary/20 peer"
+                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none peer"
                                 />
                                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-600 transition-all duration-1500 peer-focus:w-full"></span>
                             </div>
@@ -92,7 +92,7 @@ const ContactSection = () => {
                                 <textarea
                                     rows={4}
                                     placeholder="Escribe tu mensaje..."
-                                    className="peer w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none focus:bg-primary/20 resize-none"
+                                    className="peer w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none resize-none"
                                 ></textarea>
                                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-600 transition-all duration-1500 peer-focus:w-full"></span>
                             </div>

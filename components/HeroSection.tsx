@@ -1,12 +1,11 @@
 "use client"
 import { ChevronDown, Download } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const HeroSection = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [markerAnimation, setMarkerAnimation] = useState(null);
 
     const animMakerData = () => {
@@ -46,9 +45,22 @@ const HeroSection = () => {
                             )}
                         </span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-400 mb-8">
-                        Desarrollador Web Full Stack
-                    </p>
+                    <div className="flex gap-2 text-xl md:text-2xl justify-center my-8">
+                        <p className="text-gray-400">
+                            Desarrollador Web Full Stack
+                        </p>
+                        <div className="words text-start">
+                            <p className="word">next</p>
+                            <p className="word">react</p>
+                            <p className="word">typescript</p>
+                            <p className="word">firebase</p>
+                            <p className="word">tailwind</p>
+                            <p className="word">supabase</p>
+                            <p className="word">bootstrap</p>
+                            <p className="word">others..</p>
+                        </div>
+                    </div>
+
                     <div className="flex justify-center gap-10">
                         <a href="https://www.linkedin.com/in/agustinmontes10/" target="_blank">
                             <svg className="" viewBox="0 0 128 128" height={40} width={40}>
@@ -77,7 +89,7 @@ const HeroSection = () => {
             <div className="mt-12 animate-bounce">
                 <ChevronDown size={52} className="mx-auto" />
             </div>
-        </section>
+        </section >
     );
 }
 
