@@ -9,7 +9,7 @@ const fadeVariantLeftRight: Variants = {
     opacity: 0,
     x: custom % 2 === 0 ? -100 : 100,
   }),
-  visible: (custom: number) => ({
+  visible: () => ({
     opacity: 1,
     x: 0,
     transition: {

@@ -5,7 +5,7 @@ import { ProjectProps, projects } from "../../../../data/projectsData";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { A11y, Autoplay, EffectCards, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
