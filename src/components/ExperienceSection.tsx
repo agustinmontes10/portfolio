@@ -3,16 +3,16 @@ import { motion } from 'framer-motion'
 
 const experience = [
     {
-        title: 'Desarrollador Frontend',
-        company: 'Empresa de tecnología',
-        date: '2020 - 2021',
-        description: 'Desarrollo de aplicaciones web con React y Vue.js y diseño de interfaces de usuario con Figma y Adobe XD. Implementación de pruebas unitarias y de integración con Jest y React Testing Library.'
+        title: 'Desarrollador web full stack',
+        company: 'Noswar Studios',
+        date: '2023 - 2025',
+        description: 'Participé en diversos proyectos utilizando tecnologías como React, Next.js, SCSS y otras herramientas modernas del ecosistema web. A lo largo de estas experiencias, trabajé con distintos equipos, adoptando metodologías ágiles y colaborativas que me permitieron adaptarme fácilmente y contribuir de forma efectiva al desarrollo del producto.'
     },
     {
-        title: 'Desarrollador Backend',
-        company: 'Empresa de tecnología',
-        date: '2018 - 2020',
-        description: 'Desarrollo de APIs con Node.js y Python, bases de datos SQL y NoSQL con MongoDB y PostgreSQL y arquitectura de microservicios con Docker y Kubernetes. Implementación de CI/CD con Jenkins y GitLab.'
+        title: 'Desarrollador web full stack',
+        company: 'Freelance',
+        date: '2021 - 2023',
+        description: 'Desarrollo de aplicaciones web de forma freelance, con un enfoque principalmente frontend, utilizando tecnologías modernas como Next.js, Firebase, Supabase, Tailwind CSS, Bootstrap, entre otras. Cuento con experiencia en el trato directo con clientes, abarcando todo el proceso de desarrollo: desde la planificación inicial hasta la implementación y entrega final.'
     }
 ]
 

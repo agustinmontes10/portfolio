@@ -47,7 +47,7 @@ const ProjectsSection = () => {
                     alt={project.title}
                     width={500}
                     height={300}
-                    className="w-full h-[300px] object-cover"
+                    className="w-full h-[350px] object-cover"
                   />
                   <div className="p-6 project-information bg-[#13203a]">
                     <h3 className="text-xl font-bold mb-2">{project.title}</h3>

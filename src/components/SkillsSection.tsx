@@ -136,11 +136,9 @@ const SkillsSection = () => {
                             <div
                                 key={sec}
                                 onMouseEnter={() => setSection(sec as 'Frontend' | 'Backend' | 'Others')}
-                                className={`p-5 mx-2 rounded-xl flex gap-4 cursor-pointer items-center font-semibold ${section === sec ? 'bg-[linear-gradient(45deg,_#152646,_transparent)]' : ''}`}
+                                className={`px-5 py-6 mx-2 rounded-xl flex gap-4 cursor-pointer items-center font-semibold ${section === sec ? 'bg-[linear-gradient(45deg,_#152646,_transparent)]' : ''}`}
                             >
-                                <div className={`${section == sec ? 'bg-gray-400' : 'bg-gray-200'} rounded-2xl p-2`}>
-                                    <Code size={24} className={`${section == sec ? 'text-gray-300' : 'text-gray-400'}`} />
-                                </div>
+                                <Code size={24} className={`${section == sec ? 'text-gray-300' : 'text-gray-400'}`} />
                                 {sec}
                             </div>
                         ))}
