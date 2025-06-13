@@ -23,10 +23,10 @@ const ProjectsSection = () => {
   return (
     <section className="py-20 px-6">
       <div className="container mx-auto max-w-[80vw]">
-        <div className="w-full flex justify-center">
-          <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
-            Projects
-            <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 bg-[#7ab93e] -z-10'></span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-extrabold relative inline-block">
+            Projectos
+            <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded"></span>
           </h2>
         </div>
         <div className="flex flex-wrap justify-center gap-12">
@@ -41,32 +41,32 @@ const ProjectsSection = () => {
               className={`project cursor-pointer w-[45%] ${index % 2 !== 0 ? 'mt-80' : ''}`}
             >
               <Link href={`/projects/${project.id}`}>
-                  <div className={`bg-[#fff] rounded-xl overflow-hidden`}>
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={500}
-                      height={300}
-                      className="w-full h-[300px] object-cover"
-                    />
-                    <div className="p-6 project-information bg-[#13203a]">
-                      <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-gray-400 mb-4">{project.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="bg-blue-400/10 text-blue-400 px-3 py-1 rounded-full text-sm"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="arrow">
-                        <ArrowUpLeft />
-                      </div>
+                <div className={`bg-[#fff] rounded-xl overflow-hidden`}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={500}
+                    height={300}
+                    className="w-full h-[300px] object-cover"
+                  />
+                  <div className="p-6 project-information bg-[#13203a]">
+                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                    <p className="text-gray-400 mb-4">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="bg-blue-400/10 text-blue-400 px-3 py-1 rounded-full text-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="arrow">
+                      <ArrowUpLeft />
                     </div>
                   </div>
+                </div>
               </Link>
             </motion.div>
           ))}

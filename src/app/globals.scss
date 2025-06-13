@@ -35,6 +35,29 @@ body {
   font-family: poppins;
 }
 
+.navbar {
+  a {
+    position: relative;
+  }
+
+  a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1e497b, #51a2ff);
+    border-radius: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  a:hover::before {
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
 .project {
   .project-information {
     position: relative;

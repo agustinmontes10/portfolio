@@ -26,7 +26,7 @@ const ExperienceSection = () => {
         <section className="py-20 px-6">
             <div className="container mx-auto max-w-4xl">
                 <div className="text-center mb-16">
-                    <h2 className="text-5xl font-extrabold relative inline-block">
+                    <h2 className="text-4xl font-extrabold relative inline-block">
                         Experiencia
                         <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded"></span>
                     </h2>

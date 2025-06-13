@@ -124,10 +124,10 @@ const SkillsSection = () => {
     return (
         <section className="py-20 px-6" >
             <div className="container mx-auto max-w-[80vw] flex flex-col items-center">
-                <div className="w-full flex justify-center">
-                    <h2 className="text-4xl font-bold text-center mb-16 w-fit relative z-10">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl font-extrabold relative inline-block">
                         Habilidades
-                        <span className='absolute bottom-0 left-10/12 transform -translate-x-2/5 -translate-y-0 rounded w-2/5 h-5 -z-10'></span>
+                        <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded"></span>
                     </h2>
                 </div>
                 <div className="w-[60%] flex justify-center text-gray-400 bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border-2 border-[#13203a] rounded-xl p-6">
