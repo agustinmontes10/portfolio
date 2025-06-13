@@ -122,45 +122,49 @@ const SkillsSection = () => {
     const [section, setSection] = useState<'Frontend' | 'Backend' | 'Others'>('Frontend');
 
     return (
-        <section className="py-20 px-6" >
-            <div className="container mx-auto max-w-[80vw] flex flex-col items-center">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-extrabold relative inline-block">
+        <section className="py-20 px-4 sm:px-6">
+            <div className="container mx-auto max-w-[90vw] flex flex-col items-center">
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold relative inline-block">
                         Habilidades
-                        <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded"></span>
+                        <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded" />
                     </h2>
                 </div>
-                <div className="w-[60%] flex justify-center text-gray-400 bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border-2 border-[#13203a] rounded-xl p-6">
-                    <div className="flex flex-col gap-4 pt-2 w-[80%] md:w-[30%]">
+
+                <div className="w-full md:w-[60%] h-[500px] md:h-[450px] justify-start flex flex-col md:flex-row md:justify-center text-gray-400 bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border-2 border-[#13203a] rounded-xl p-4 sm:p-6 gap-6">
+
+                    {/* Tabs */}
+                    <div className="flex flex-row h-fit items-center md:items-start md:flex-col gap-4 justify-center md:pt-2 w-full md:w-[30%] overflow-x-auto">
                         {['Frontend', 'Backend', 'Others'].map((sec) => (
                             <div
                                 key={sec}
                                 onMouseEnter={() => setSection(sec as 'Frontend' | 'Backend' | 'Others')}
-                                className={`px-5 py-6 mx-2 rounded-xl flex gap-4 cursor-pointer items-center font-semibold ${section === sec ? 'bg-[linear-gradient(45deg,_#152646,_transparent)]' : ''}`}
+                                className={`flex-1 px-3 py-4 sm:px-5 sm:py-6 mx-1 md:mx-2 rounded-xl flex gap-3 cursor-pointer items-center justify-center text-sm sm:text-base font-semibold ${section === sec ? 'bg-[linear-gradient(45deg,_#152646,_transparent)]' : ''
+                                    }`}
                             >
-                                <Code size={24} className={`${section == sec ? 'text-gray-300' : 'text-gray-400'}`} />
+                                <Code size={20} className={`${section == sec ? 'text-gray-300' : 'text-gray-400'}`} />
                                 {sec}
                             </div>
                         ))}
                     </div>
 
-                    <div className="w-full flex justify-center rounded-lg bg-[#091223]">
-                        <div className="flex gap-10 justify-center p-16 flex-wrap">
+                    {/* Skills Content */}
+                    <div className="w-full flex justify-center rounded-lg bg-[#091223] h-100 overflow-y-auto">
+                        <div className="flex gap-6 sm:gap-10 justify-center p-6 sm:p-12 flex-wrap">
                             {skills[section].map((skill, index) => (
-                                <div
-                                    key={index}
-                                    className="flex flex-col items-center"
-                                >
-                                    <div className="text-blue-400 mb-4 w-12 animate-bounce">{skill.icon}</div>
-                                    <h3 className="text-xl font-medium mb-2">{skill.title}</h3>
+                                <div key={index} className="flex flex-col items-center w-[40%] sm:w-auto">
+                                    <div className="text-blue-400 mb-3 w-10 sm:w-12 animate-bounce">
+                                        {skill.icon}
+                                    </div>
+                                    <h3 className="text-sm sm:text-xl font-medium text-center">{skill.title}</h3>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
+
     );
 }
 

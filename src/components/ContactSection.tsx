@@ -4,52 +4,130 @@ import CustomInput from "./CustomInput";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const ContactSection = () => {
-    const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', message: '' })
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+    })
     const [sent, setSent] = useState(false)
-    const [animationData, setAnimationData] = useState(null);
-
-    const animData = () => {
-        fetch("/assets/contactAnimation.json")
-            .then((response) => response.json())
-            .then((data) => setAnimationData(data))
-            .catch((error) => console.error("Error loading animation:", error));
-    };
+    const [animationData, setAnimationData] = useState(null)
 
     useEffect(() => {
-        animData();
+        fetch("/assets/contactAnimation.json")
+            .then((res) => res.json())
+            .then((data) => setAnimationData(data))
+            .catch((err) => console.error("Error loading animation:", err))
     }, [])
 
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        console.log('formdata', formData)
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const { name, value } = e.target
+        setFormData((prev) => ({ ...prev, [name]: value }))
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        const res = await fetch('/api/contact', {
-            method: 'POST',
+
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+            alert("Por favor, completá todos los campos.")
+            return
+        }
+
+        const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
         })
-        if (res.ok) setSent(true)
+
+        if (res.ok) {
+            setSent(true)
+            setFormData({ firstName: "", lastName: "", email: "", message: "" })
+        }
     }
 
     return (
-        <section className="py-20 px-6" >
-            <div className="container mx-auto max-w-[80vw] flex flex-col items-center">
+        <section className="py-20 px-6">
+            <div className="container mx-auto max-w-[90vw] flex flex-col items-center">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-extrabold relative inline-block">
                         Contacto
                         <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded"></span>
                     </h2>
                 </div>
-                <div className="flex gap-10">
-                    {/* <div>
-                        {animationData && <Lottie animationData={animationData} className="w-[70vw] md:w-[30vw]" />}
-                    </div> */}
-                    <div className="flex flex-col items-center">
-                        <p className="text-xl font-semibold">¿Tienes algun proyecto en mente?</p>
-                        <p className="text-xl font-semibold">¡Contactame!</p>
+
+                <div className="flex flex-col-reverse lg:flex-row gap-10 items-center">
+                    {/* Formulario */}
+                    <div className="bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border border-[#13203a] rounded-xl p-8 w-full max-w-[600px]">
+                        <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label className="block text-md font-semibold mb-2">Nombre</label>
+                                <CustomInput
+                                    placeholder="Nombre"
+                                    type="text"
+                                    name="firstName"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
+
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-md font-semibold mb-2">Apellido</label>
+                                <CustomInput
+                                    placeholder="Apellido"
+                                    type="text"
+                                    name="lastName"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
+
+                                />
+                            </div>
+
+                            <div className="sm:col-span-2">
+                                <label className="block text-md font-semibold mb-2">Email</label>
+                                <CustomInput
+                                    placeholder="Email"
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <div className="sm:col-span-2">
+                                <label className="block text-md font-semibold mb-2">Mensaje</label>
+                                <CustomInput
+                                    textarea
+                                    placeholder="Escribe tu mensaje..."
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="sm:col-span-2 bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg transition-colors"
+                            >
+                                Enviar Mensaje
+                            </button>
+
+                            {sent && (
+                                <p className="sm:col-span-2 text-center text-green-400 transition-all">
+                                    ¡Gracias por comunicarte! 🙌
+                                </p>
+                            )}
+                        </form>
+                    </div>
+
+                    {/* Info de contacto + animación */}
+                    <div className="flex flex-col items-center text-center max-w-md">
+                        <p className="text-xl font-semibold mb-2">¿Tienes algún proyecto en mente?</p>
+                        <p className="text-xl font-semibold mb-4">¡Contactame!</p>
+
                         <div className="flex gap-10 mt-10">
                             <a href="https://www.linkedin.com/in/agustinmontes10/" target="_blank">
                                 <svg className="animate-bounce" viewBox="0 0 128 128" height={40} width={40}>
@@ -69,44 +147,17 @@ const ContactSection = () => {
                                 </svg>
                             </a>
                         </div>
-                        <div>
-                            {animationData && <Lottie animationData={animationData} className="w-[70vw] md:w-[30vw]" />}
-                        </div>
-                    </div>
-                    <div className="bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border-1 border-[#13203a] rounded-xl p-14" onSubmit={handleSubmit} >
-                        <form className="grid grid-cols-2 gap-6">
-                            <div className="relative w-[200px]">
-                                <label className="block text-md font-semibold mb-2">Nombre</label>
-                                <CustomInput placeholder="Nombre" type="text" onChange={handleChange} name={'firstName'} />
-                            </div>
-                            <div className="relative w-[200px]">
-                                <label className="block text-md font-semibold mb-2">Apellido</label>
-                                <CustomInput placeholder="Apellido" type="text" onChange={handleChange} name={'lastName'} />
-                            </div>
-                            <div className="relative col-span-2">
-                                <label className="block text-md font-semibold mb-2">Email</label>
-                                <CustomInput placeholder="Email" type="email" onChange={handleChange} name={'email'} />
-                            </div>
-                            <div className="col-span-2 relative">
-                                <label className="block text-md font-semibold mb-2">Mensaje</label>
-                                <CustomInput textarea placeholder="Escribe tu mensaje..." onChange={handleChange} name={'message'} />
-                            </div>
 
-                            <button
-                                type="submit"
-
-                                className="w-full col-span-2 bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg transition-colors"
-                            >
-                                Enviar Mensaje
-                            </button>
-                            {sent && <p className="col-span-2 text-center">¡Gracias por comunicarte! 🙌</p>}
-                        </form>
+                        {animationData && (
+                            <div className="w-full max-w-[300px]">
+                                <Lottie animationData={animationData} loop={true} />
+                            </div>
+                        )}
                     </div>
                 </div>
-
             </div>
         </section>
-    );
+    )
 }
 
-export default ContactSection;
+export default ContactSection

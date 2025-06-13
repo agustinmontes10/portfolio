@@ -2,39 +2,102 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { motion, AnimatePresence } from "framer-motion"
 
 const Navbar = () => {
-    const [activeSection, setActiveSection] = useState('inicio');
-    const { t } = useTranslation()
+  const [activeSection, setActiveSection] = useState("inicio")
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useTranslation()
 
-    return (
-        <nav className={`fixed w-full z-50 transition-colors duration-700 navbar`} >
-            <div className="container mx-auto px-6 py-4">
-                <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold">{t('welcome')}</span>
-                    <div className="hidden md:flex space-x-8 font-medium text-lg">
-                        {['Inicio', 'Sobre Mí', 'Proyectos', 'Contacto'].map((item) => (
-                            <a
-                                key={item}
-                                onClick={() => setActiveSection(item.toLowerCase())}
-                                className={`relative group transition-colors px-4 py-3 cursor-pointer ${activeSection === item.toLowerCase() ? 'text-blue-400' : ''
-                                    }`}
-                            >
-                                {item}
-                        
-                            </a>
+  const navItems = ["Inicio", "Sobre Mí", "Proyectos", "Contacto"]
 
-                        ))}
-                    </div>
-                    <div className="flex gap-4">
-                        <LanguageSwitcher />
-                        {/* <ThemeSwitcher /> */}
-                    </div>
+  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev)
 
-                </div>
-            </div>
-        </nav>
-    );
-};
+  const handleNavClick = (item: string) => {
+    setActiveSection(item.toLowerCase())
+    setIsMobileMenuOpen(false)
+  }
 
+  return (
+    <nav className="fixed w-full z-50 transition-colors duration-700 navbar backdrop-blur-xl shadow-md">
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          <span className="text-2xl font-bold">Agustin Montes</span>
+
+          {/* Botón hamburguesa */}
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden text-2xl focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? "✖" : "☰"}
+          </button>
+
+          {/* Navegación Desktop */}
+          <div className="hidden md:flex space-x-8 font-medium text-lg">
+            {navItems.map((item, index) => (
+              <motion.a
+                key={item}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => handleNavClick(item)}
+                className={`relative group transition-colors px-4 py-3 cursor-pointer ${
+                  activeSection === item.toLowerCase() ? "text-blue-400" : ""
+                }`}
+              >
+                {item}
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Switchers (desktop) */}
+          <div className="hidden md:flex gap-4">
+            <LanguageSwitcher />
+            {/* <ThemeSwitcher /> */}
+          </div>
+        </div>
+
+        {/* Menú Mobile Animado */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              key="mobileMenu"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden items-center mt-4 flex flex-col gap-4 font-medium text-lg"
+            >
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item}
+                  onClick={() => handleNavClick(item)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  className={`px-4 py-2 cursor-pointer ${
+                    activeSection === item.toLowerCase() ? "text-blue-400" : ""
+                  }`}
+                >
+                  {item}
+                </motion.a>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: navItems.length * 0.05 }}
+                className="flex justify-center gap-4 mt-4"
+              >
+                <LanguageSwitcher />
+                {/* <ThemeSwitcher /> */}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </nav>
+  )
+}
 export default Navbar;

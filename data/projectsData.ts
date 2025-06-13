@@ -56,4 +56,19 @@ export const projects: ProjectProps[] = [
         deployment: 'https://rocketly-web.vercel.app/',
         linkGithub: 'https://github.com/agustinmontes10/rocketly-web',
     },
+    {
+        id: 3,
+        title: "Rocketly Web",
+        description: "Landing Page para startup de IA y tecnologia",
+        text: "Rocketly Web es una landing page desarrollada sobre una base de Bolt.new utilizando Next.js, SCSS puro y animaciones con Framer Motion. Integra Three.js para efectos 3D y cuenta con una experiencia de scroll-telling fluida y atractiva, diseñada para guiar al usuario a través del contenido de forma envolvente. Todo el diseño está pensado para ofrecer una experiencia moderna, amigable y visualmente impactante, ideal para captar la atención desde el primer scroll.",
+        image: "/assets/projects/rocketlyWeb.png",
+        tags: ["React", "TailwindCSS"],
+        images: [
+            '/assets/projects/rocketlyWebScreen1.png',
+            '/assets/projects/rocketlyWebScreen2.png',
+            '/assets/projects/rocketlyWebScreen3.png'
+        ],
+        deployment: 'https://rocketly-web.vercel.app/',
+        linkGithub: 'https://github.com/agustinmontes10/rocketly-web',
+    }
 ];

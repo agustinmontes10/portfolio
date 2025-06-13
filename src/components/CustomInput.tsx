@@ -6,14 +6,15 @@ interface CustomInputProps {
     textarea?: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     name: string;
+    value: string;
 }
 
-const CustomInput: React.FC<CustomInputProps> = ({type = 'text', placeholder, textarea, onChange, name}) => {
+const CustomInput: React.FC<CustomInputProps> = ({type = 'text', placeholder, textarea, onChange, name, value}) => {
     return (
         <div className="nebula-input">
             { textarea 
-                ? <textarea required name={name} autoComplete="off" className="input" placeholder={ placeholder } onChange={onChange} /> 
-                : <input required type={ type } name={name} autoComplete="off" className="input" placeholder={ placeholder } onChange={onChange} />
+                ? <textarea required name={name} value={value} autoComplete="off" className="input" placeholder={ placeholder } onChange={onChange} /> 
+                : <input required type={ type } value={value} name={name} autoComplete="off" className="input" placeholder={ placeholder } onChange={onChange} />
             }
             <div className="nebula-particle" style={{ "--x": 0.2, "--y": -0.4, "--delay": "0.1s" } as React.CSSProperties}></div>
             <div className="nebula-particle" style={{ "--x": 0.5, "--y": -0.2, "--delay": "0.3s" } as React.CSSProperties}></div>
