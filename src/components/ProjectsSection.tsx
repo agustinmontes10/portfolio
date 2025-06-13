@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { ArrowUpLeft } from "lucide-react";
-import { projects } from '../data/projectsData';
 import { motion, Variants } from "framer-motion";
 import Image from 'next/image';
+import { projects } from '../../data/projectsData';
 
 const fadeVariantLeftRight: Variants = {
   hidden: (custom: number) => ({

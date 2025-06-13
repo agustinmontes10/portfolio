@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import CustomInput from "./CustomInput";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const ContactSection = () => {
@@ -59,42 +60,19 @@ const ContactSection = () => {
                         <form className="grid grid-cols-2 gap-6">
                             <div className="relative w-[200px]">
                                 <label className="block text-md font-semibold mb-2">Nombre</label>
-                                <input
-                                    type="text"
-                                    placeholder="Lionel"
-                                    required
-                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none peer"
-                                />
-                                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-600 transition-all duration-1500 peer-focus:w-full"></span>
+                                <CustomInput placeholder="Nombre" type="text" />
                             </div>
                             <div className="relative w-[200px]">
                                 <label className="block text-md font-semibold mb-2">Apellido</label>
-                                <input
-                                    type="text"
-                                    placeholder="Messi"
-                                    required
-                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none peer"
-                                />
-                                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-600 transition-all duration-1500 peer-focus:w-full"></span>
+                                <CustomInput placeholder="Apellido" type="text" />
                             </div>
                             <div className="relative col-span-2">
                                 <label className="block text-md font-semibold mb-2">Email</label>
-                                <input
-                                    type="email"
-                                    placeholder="example@gmail.com"
-                                    required
-                                    className="w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none peer"
-                                />
-                                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-600 transition-all duration-1500 peer-focus:w-full"></span>
+                                <CustomInput placeholder="Email" type="email" />
                             </div>
                             <div className="col-span-2 relative">
                                 <label className="block text-md font-semibold mb-2">Mensaje</label>
-                                <textarea
-                                    rows={4}
-                                    placeholder="Escribe tu mensaje..."
-                                    className="peer w-full text-gray-600 text-md bg-transparent px-2 py-2 border-b border-gray-300/40 rounded-t focus:outline-none resize-none"
-                                ></textarea>
-                                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-600 transition-all duration-1500 peer-focus:w-full"></span>
+                                <CustomInput textarea placeholder="Escribe tu mensaje..."/>
                             </div>
 
                             <button

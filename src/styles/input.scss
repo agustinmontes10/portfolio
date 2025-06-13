@@ -1,0 +1,63 @@
+/* From Uiverse.io by risabbir */
+.nebula-input {
+    position: relative;
+
+    input, textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #2a2a3a;
+        background: #00000f;
+        color: white;
+        font-size: 16px;
+        outline: none;
+        border-radius: 8px;
+        transition: all 0.4s ease-out;
+
+        &:focus {
+            border-color: #51a2ff;
+            box-shadow:
+                0 2px 4px #25305d,
+                0 5 10 #25305d,
+                0 10 20px #25305d,
+                0 15px 30px #25305d;
+        }
+
+        &:focus~.nebula-particle {
+            animation: nebula-float 2s forwards ease-out;
+
+        }
+    }
+
+    .nebula-particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+        top: 50%;
+        left: 10px;
+        filter: blur(0.8px);
+        mix-blend-mode: screen;
+        transition: opacity 0.3s ease;
+    }
+}
+
+
+@keyframes nebula-float {
+    0% {
+        transform: translate(0, -50%) scale(0.8);
+        opacity: 0;
+        background: #51a2ff;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(calc(var(--x) * 140px), calc(var(--y) * 35px)) scale(1.1);
+        opacity: 0;
+        background: #6df2ff;
+    }
+}
