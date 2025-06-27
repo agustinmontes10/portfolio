@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("inicio")
@@ -28,7 +29,11 @@ const Navbar = () => {
     <nav className="fixed w-full z-50 transition-colors duration-700 navbar backdrop-blur-xl shadow-md">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Image src={'/assets/avatar.png'} width={25} height={25} alt=""/>
           <span className="text-2xl font-bold">Agustin Montes</span>
+
+          </div>
 
           {/* Botón hamburguesa */}
           <button
