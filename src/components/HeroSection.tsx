@@ -31,10 +31,10 @@ const HeroSection = () => {
             <div className="container mx-auto max-w-[80vw] flex flex-col md:flex-row justify-center items-center gap-10">
                 <div className={`text-center transform transition-all duration-1000 flex flex-col gap-10 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                     }`}>
-                    <p className="text-2xl md:text-4xl font-medium text-gray-400 mb-2">
+                    {/* <p className="text-2xl md:text-4xl font-medium text-gray-400 mb-2">
                         Agustín Montes
-                    </p>
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                    </p> */}
+                    <h1 className="text-5xl md:text-7xl font-bold mt-10 mb-6">
                         {t("hero.title")} {" "}
                         <span className="text-blue-400 relative inline-block">
                             {t("hero.role")}
