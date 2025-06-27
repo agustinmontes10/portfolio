@@ -3,6 +3,7 @@ import { ArrowUpLeft } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import Image from 'next/image';
 import { projects } from '../../data/projectsData';
+import { useTranslation } from 'react-i18next';
 
 const fadeVariantLeftRight: Variants = {
   hidden: (custom: number) => ({
@@ -20,17 +21,19 @@ const fadeVariantLeftRight: Variants = {
 };
 
 const ProjectsSection = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="py-20 px-4 sm:px-6">
-      <div className="container mx-auto max-w-[90vw]">
+      <div className="container mx-auto max-w-[80vw] md:max-w-[70vw]">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold relative inline-block">
-            Proyectos
+            {t("projects.title")}
             <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded" />
           </h2>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-10 sm:gap-12">
+        <div className="flex flex-wrap justify-between gap-10 sm:gap-12" id='projects'>
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -52,20 +55,23 @@ const ProjectsSection = () => {
                     className="w-full h-48 sm:h-[350px] object-cover"
                   />
                   <div className="p-5 sm:p-6 project-information bg-[#13203a]">
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-gray-400 text-sm sm:text-base mb-4">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="bg-blue-400/10 text-blue-400 px-3 py-1 rounded-full text-xs sm:text-sm"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    <div className='w-[77%]'>
+                      <h3 className="text-lg sm:text-xl font-bold mb-2">{project.title}</h3>
+                      <p className="text-gray-400 text-sm sm:text-base mb-4">
+                        {t(`projects.${project.description}`)}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="bg-blue-400/10 text-blue-400 px-3 py-1 rounded-full text-xs sm:text-sm"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
+
                     <div className="arrow mt-4">
                       <ArrowUpLeft />
                     </div>

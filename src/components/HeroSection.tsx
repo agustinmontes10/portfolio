@@ -2,11 +2,13 @@
 import { ChevronDown, Download } from "lucide-react";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { useTranslation } from "react-i18next";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const HeroSection = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [markerAnimation, setMarkerAnimation] = useState(null);
+    const { t } = useTranslation();
 
     const animMakerData = () => {
         fetch("/assets/markerAnimation.json")
@@ -25,7 +27,7 @@ const HeroSection = () => {
 
 
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
+        <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4 sm:px-6" id="home">
             <div className="container mx-auto max-w-[80vw] flex flex-col md:flex-row justify-center items-center gap-10">
                 <div className={`text-center transform transition-all duration-1000 flex flex-col gap-10 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                     }`}>
@@ -33,9 +35,9 @@ const HeroSection = () => {
                         Agustín Montes
                     </p>
                     <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                        Hola, soy {" "}
+                        {t("hero.title")} {" "}
                         <span className="text-blue-400 relative inline-block">
-                            Developer
+                            {t("hero.role")}
                             {markerAnimation && (
                                 <Lottie
                                     animationData={markerAnimation}
@@ -45,11 +47,11 @@ const HeroSection = () => {
                             )}
                         </span>
                     </h1>
-                    <div className="flex gap-2 text-xl md:text-2xl justify-center my-8">
+                    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-2 text-xl md:text-2xl justify-center my-8">
                         <p className="text-gray-400">
-                            Desarrollador Web Full Stack
+                            {t("hero.subtitle")}
                         </p>
-                        <div className="words text-start">
+                        <span className="words text-center md:text-start">
                             <p className="word">next</p>
                             <p className="word">react</p>
                             <p className="word">typescript</p>
@@ -58,7 +60,7 @@ const HeroSection = () => {
                             <p className="word">supabase</p>
                             <p className="word">bootstrap</p>
                             <p className="word">others..</p>
-                        </div>
+                        </span>
                     </div>
 
                     <div className="flex justify-center gap-10">
@@ -84,7 +86,7 @@ const HeroSection = () => {
             </div>
             <div className="mt-12  flex items-center gap-4 relative left-0">
                 <Download size={52} className="animate-pulse" />
-                <p>Descargar CV</p>
+                <p>{t("hero.downloadCV")}</p>
             </div>
             <div className="mt-12 animate-bounce">
                 <ChevronDown size={52} className="mx-auto" />

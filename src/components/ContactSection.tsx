@@ -1,9 +1,11 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import CustomInput from "./CustomInput";
+import { useTranslation } from "react-i18next";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const ContactSection = () => {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -48,23 +50,23 @@ const ContactSection = () => {
     }
 
     return (
-        <section className="py-20 px-6">
-            <div className="container mx-auto max-w-[90vw] flex flex-col items-center">
+        <section className="py-20 px-6" id="contact">
+            <div className="container mx-auto max-w-[80vw] md:max-w-[70vw] flex flex-col items-center">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-extrabold relative inline-block">
-                        Contacto
+                        {t("contact.title")}
                         <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded"></span>
                     </h2>
                 </div>
 
-                <div className="flex flex-col-reverse lg:flex-row gap-10 items-center">
+                <div className="flex flex-col-reverse w-full lg:flex-row gap-10 items-center justify-between">
                     {/* Formulario */}
                     <div className="bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border border-[#13203a] rounded-xl p-8 w-full max-w-[600px]">
                         <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-md font-semibold mb-2">Nombre</label>
+                                <label className="block text-md font-semibold mb-2">{t("contact.name")}</label>
                                 <CustomInput
-                                    placeholder="Nombre"
+                                    placeholder={t("contact.placeholder_name")}
                                     type="text"
                                     name="firstName"
                                     value={formData.firstName}
@@ -74,9 +76,9 @@ const ContactSection = () => {
                             </div>
 
                             <div>
-                                <label className="block text-md font-semibold mb-2">Apellido</label>
+                                <label className="block text-md font-semibold mb-2">{t("contact.lastname")}</label>
                                 <CustomInput
-                                    placeholder="Apellido"
+                                    placeholder={t("contact.placeholder_lastname")}
                                     type="text"
                                     name="lastName"
                                     value={formData.lastName}
@@ -86,9 +88,9 @@ const ContactSection = () => {
                             </div>
 
                             <div className="sm:col-span-2">
-                                <label className="block text-md font-semibold mb-2">Email</label>
+                                <label className="block text-md font-semibold mb-2">{t("contact.email")}</label>
                                 <CustomInput
-                                    placeholder="Email"
+                                    placeholder={t("contact.placeholder_email")}
                                     type="email"
                                     name="email"
                                     value={formData.email}
@@ -97,10 +99,10 @@ const ContactSection = () => {
                             </div>
 
                             <div className="sm:col-span-2">
-                                <label className="block text-md font-semibold mb-2">Mensaje</label>
+                                <label className="block text-md font-semibold mb-2">{t("contact.message")}</label>
                                 <CustomInput
                                     textarea
-                                    placeholder="Escribe tu mensaje..."
+                                    placeholder={t("contact.placeholder_message")}
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
@@ -112,12 +114,12 @@ const ContactSection = () => {
                                 type="submit"
                                 className="sm:col-span-2 bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg transition-colors"
                             >
-                                Enviar Mensaje
+                                {t("contact.send")}
                             </button>
 
                             {sent && (
                                 <p className="sm:col-span-2 text-center text-green-400 transition-all">
-                                    ¡Gracias por comunicarte! 🙌
+                                    {t("contact.thanks")}
                                 </p>
                             )}
                         </form>
@@ -125,8 +127,8 @@ const ContactSection = () => {
 
                     {/* Info de contacto + animación */}
                     <div className="flex flex-col items-center text-center max-w-md">
-                        <p className="text-xl font-semibold mb-2">¿Tienes algún proyecto en mente?</p>
-                        <p className="text-xl font-semibold mb-4">¡Contactame!</p>
+                        <p className="text-xl font-semibold mb-2">{t("contact.project_question")}</p>
+                        <p className="text-xl font-semibold mb-4">{t("contact.contactme")}</p>
 
                         <div className="flex gap-10 mt-10">
                             <a href="https://www.linkedin.com/in/agustinmontes10/" target="_blank">
@@ -149,7 +151,7 @@ const ContactSection = () => {
                         </div>
 
                         {animationData && (
-                            <div className="w-full max-w-[300px]">
+                            <div className="w-full max-w-[300px] md:max-w-[500px]">
                                 <Lottie animationData={animationData} loop={true} />
                             </div>
                         )}

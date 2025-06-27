@@ -1,5 +1,6 @@
 import { Code } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const skills = {
     //ICONS DEVICON
@@ -120,13 +121,14 @@ const skills = {
 
 const SkillsSection = () => {
     const [section, setSection] = useState<'Frontend' | 'Backend' | 'Others'>('Frontend');
+    const { t } = useTranslation();
 
     return (
-        <section className="py-20 px-4 sm:px-6">
-            <div className="container mx-auto max-w-[90vw] flex flex-col items-center">
+        <section className="py-20 px-4 sm:px-6" id="skills">
+            <div className="container mx-auto max-w-[80vw] flex flex-col items-center">
                 <div className="text-center mb-12 sm:mb-16">
                     <h2 className="text-3xl sm:text-4xl font-extrabold relative inline-block">
-                        Habilidades
+                        {t('skills.title')}
                         <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded" />
                     </h2>
                 </div>

@@ -9,7 +9,13 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { t } = useTranslation()
 
-  const navItems = ["Inicio", "Sobre Mí", "Proyectos", "Contacto"]
+  const navSections = [
+    { label: t("navbar.home"), id: "home" },
+    { label: t("navbar.skills"), id: "skills" },
+    { label: t("navbar.projects"), id: "projects" },
+    { label: t("navbar.experience"), id: "experience" },
+    { label: t("navbar.contact"), id: "contact" },
+  ]
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev)
 
@@ -35,18 +41,19 @@ const Navbar = () => {
 
           {/* Navegación Desktop */}
           <div className="hidden md:flex space-x-8 font-medium text-lg">
-            {navItems.map((item, index) => (
+            {navSections.map((item, index) => (
               <motion.a
-                key={item}
+                key={item.id}
+                href={`#${item.id}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                onClick={() => handleNavClick(item)}
+                onClick={() => handleNavClick(item.id)}
                 className={`relative group transition-colors px-4 py-3 cursor-pointer ${
-                  activeSection === item.toLowerCase() ? "text-blue-400" : ""
+                  activeSection === item.id ? "text-blue-400" : ""
                 }`}
               >
-                {item}
+                {item.label}
               </motion.a>
             ))}
           </div>
@@ -69,25 +76,26 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden items-center mt-4 flex flex-col gap-4 font-medium text-lg"
             >
-              {navItems.map((item, index) => (
+              {navSections.map((item, index) => (
                 <motion.a
-                  key={item}
-                  onClick={() => handleNavClick(item)}
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={() => handleNavClick(item.id)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   className={`px-4 py-2 cursor-pointer ${
-                    activeSection === item.toLowerCase() ? "text-blue-400" : ""
+                    activeSection === item.id ? "text-blue-400" : ""
                   }`}
                 >
-                  {item}
+                  {item.label}
                 </motion.a>
               ))}
 
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: navItems.length * 0.05 }}
+                transition={{ delay: navSections.length * 0.05 }}
                 className="flex justify-center gap-4 mt-4"
               >
                 <LanguageSwitcher />
