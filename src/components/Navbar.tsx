@@ -41,7 +41,7 @@ const Navbar = () => {
 
           {/* Navegación Desktop */}
           <div className="hidden md:flex space-x-8 font-medium text-lg">
-            {navSections.map((item, index) => (
+            {navSections.map((item) => (
               <motion.a
                 key={item.id}
                 href={`#${item.id}`}

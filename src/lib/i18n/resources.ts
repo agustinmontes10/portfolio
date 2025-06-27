@@ -1,5 +1,3 @@
-import { text } from "framer-motion/m";
-
 const resources = {
     en: {
         translation: {
