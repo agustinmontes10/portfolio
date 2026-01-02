@@ -1,6 +1,6 @@
 "use client"
 import { ChevronDown, Download, Eye, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { useTranslation } from "react-i18next";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -108,7 +108,7 @@ const HeroSection = () => {
                                     }}
                                     className="flex flex-nowrap justify-center gap-3 sm:gap-3 px-1"
                                 >
-                                    {rowSkills.map((skill: any, index: number) => {
+                                    {rowSkills.map((skill: { icon: ReactNode; title: string }, index: number) => {
                                         const dist = Math.abs(index - centerIndex);
                                         // Curve calculation:
                                         // dist^2 gives parabola

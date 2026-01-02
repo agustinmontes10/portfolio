@@ -1,4 +1,4 @@
-import { m } from "framer-motion";
+
 
 const resources = {
     en: {
