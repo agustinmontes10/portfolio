@@ -43,9 +43,13 @@ const HeroSection = () => {
 
     const allSkills = Object.values(skills).flat();
     
-    // Split skills into rows: 1 for desktop, 2 for mobile
+    // Split skills into rows: 1 for desktop, 3 for mobile to fit screen
     const rows = isMobile 
-        ? [allSkills.slice(0, Math.ceil(allSkills.length / 2)), allSkills.slice(Math.ceil(allSkills.length / 2))]
+        ? [
+            allSkills.slice(0, Math.ceil(allSkills.length / 3)), 
+            allSkills.slice(Math.ceil(allSkills.length / 3), Math.ceil(allSkills.length * 2 / 3)),
+            allSkills.slice(Math.ceil(allSkills.length * 2 / 3))
+          ]
         : [allSkills];
 
     return (
@@ -174,7 +178,7 @@ const HeroSection = () => {
                     */}
                 </div>
             </div>
-            <div className="mt-12 flex gap-6 z-10">
+            <div className="mt-12 flex flex-col md:flex-row gap-6 z-10">
                 {/* Preview Button */}
                 <button 
                     onClick={() => setShowPreview(true)}
