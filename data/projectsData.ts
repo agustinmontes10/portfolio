@@ -57,18 +57,18 @@ export const projects: ProjectProps[] = [
         linkGithub: 'https://github.com/agustinmontes10/rocketly-web',
     },
     {
-        id: 3,
-        title: "Rocketly Web",
-        description: "project3.description",
-        text: "project3.text",
-        image: "/assets/projects/rocketlyWeb.png",
-        tags: ["React", "TailwindCSS"],
+        id: 4,
+        title: "Napo's",
+        description: "project4.description",
+        text: "project4.text",
+        image: "/assets/projects/napos1.png",
+           tags: ["React", "TailwindCSS", "Next.js", "TypeScript", "Firebase"],
         images: [
-            '/assets/projects/rocketlyWebScreen1.png',
-            '/assets/projects/rocketlyWebScreen2.png',
-            '/assets/projects/rocketlyWebScreen3.png'
+            '/assets/projects/napos1.png',
+            '/assets/projects/napos2.png',
+            '/assets/projects/napos3.png'
         ],
-        deployment: 'https://rocketly-web.vercel.app/',
-        linkGithub: 'https://github.com/agustinmontes10/rocketly-web',
+        deployment: 'https://napos.vercel.app/',
+        linkGithub: '',
     }
 ];

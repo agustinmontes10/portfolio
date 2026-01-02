@@ -1,3 +1,5 @@
+import { m } from "framer-motion";
+
 const resources = {
     en: {
         translation: {
@@ -49,6 +51,9 @@ const resources = {
                 project3: {
                     description: "Landing page for an AI and technology startup",
                     text: "Rocketly Web is a landing page developed on a Bolt.new base using Next.js, pure SCSS, and animations with Framer Motion. It integrates Three.js for 3D effects and features a smooth and attractive scroll-telling experience, designed to guide the user through the content in an immersive way. The entire design is intended to offer a modern, friendly, and visually striking experience, ideal for capturing attention from the first scroll."
+                },
+                project4: {
+
                 }
             },
             skills: {
@@ -113,6 +118,10 @@ const resources = {
                 project3: {
                     description: "Landing Page para startup de IA y tecnologia",
                     text: "Rocketly Web es una landing page desarrollada sobre una base de Bolt.new utilizando Next.js, SCSS puro y animaciones con Framer Motion. Integra Three.js para efectos 3D y cuenta con una experiencia de scroll-telling fluida y atractiva, diseñada para guiar al usuario a través del contenido de forma envolvente. Todo el diseño está pensado para ofrecer una experiencia moderna, amigable y visualmente impactante, ideal para captar la atención desde el primer scroll."
+                },
+                project4: {
+                    description: "Applicacion para pizzeria, muestra de productos y control de ordenes y stock",
+                    text: "Napo’s es una aplicación web desarrollada para optimizar la gestión de pedidos de una pizzería, construida con Next.js y una arquitectura moderna orientada a rendimiento y escalabilidad. La aplicación integra una base de datos en tiempo real para la administración de órdenes, control de stock y validación de horarios, garantizando un flujo de pedidos eficiente y confiable."
                 }
             },
             skills: {

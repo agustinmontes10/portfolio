@@ -1,0 +1,33 @@
+.navbar-shell {
+  position: relative;
+}
+
+/* Lado izquierdo */
+.navbar-shell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 100%;
+  
+  background:
+    radial-gradient(
+      circle at right center,
+      #1e1e4d 0%,
+      #1e1e4d 45%,
+      #13132e 65%,
+      #13132e 100%
+    );
+}
+
+/* Lado derecho */
+.navbar-shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -100vw;
+  width: 100vw;
+  height: 100%;
+  background: #13132e;
+}

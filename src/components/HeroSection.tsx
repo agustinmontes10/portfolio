@@ -1,12 +1,15 @@
 "use client"
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown, Download, Eye, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { useTranslation } from "react-i18next";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+import { motion, AnimatePresence } from "framer-motion";
+import { skills } from "./SkillsSection";
 
 const HeroSection = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [showPreview, setShowPreview] = useState(false);
     const [markerAnimation, setMarkerAnimation] = useState(null);
     const { t } = useTranslation();
 
@@ -25,6 +28,25 @@ const HeroSection = () => {
         setIsVisible(true);
     }, []);
 
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        handleResize(); // Check on mount
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const allSkills = Object.values(skills).flat();
+    
+    // Split skills into rows: 1 for desktop, 2 for mobile
+    const rows = isMobile 
+        ? [allSkills.slice(0, Math.ceil(allSkills.length / 2)), allSkills.slice(Math.ceil(allSkills.length / 2))]
+        : [allSkills];
 
     return (
         <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4 sm:px-6" id="home">
@@ -52,7 +74,9 @@ const HeroSection = () => {
                             {t("hero.subtitle")}
                         </p>
                         <span className="words text-center md:text-start">
-                            <p className="word">next</p>
+                            <p className="word">next.js</p>
+                            <p className="word">n8n</p>
+                            <p className="word">node.js</p>
                             <p className="word">react</p>
                             <p className="word">typescript</p>
                             <p className="word">firebase</p>
@@ -63,6 +87,71 @@ const HeroSection = () => {
                         </span>
                     </div>
 
+                    {/* Skills Icons - Curved Rows */}
+                    <div className="flex flex-col items-center gap-16 sm:gap-12 mt-8 w-full max-w-5xl">
+                        {rows.map((rowSkills, rowIndex) => {
+                            const centerIndex = (rowSkills.length - 1) / 2;
+                            return (
+                                <motion.div 
+                                    key={rowIndex}
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={{
+                                        hidden: { opacity: 0 },
+                                        visible: {
+                                            opacity: 1,
+                                            transition: {
+                                                staggerChildren: 0.1,
+                                                delayChildren: 0.5 + (rowIndex * 0.2) // Slight delay for second row
+                                            }
+                                        }
+                                    }}
+                                    className="flex flex-nowrap justify-center gap-3 sm:gap-3 px-1"
+                                >
+                                    {rowSkills.map((skill: any, index: number) => {
+                                        const dist = Math.abs(index - centerIndex);
+                                        // Curve calculation:
+                                        // dist^2 gives parabola
+                                        const yOffset = Math.pow(dist, 2) * (isMobile ? 2 : 1.5); 
+                                        
+                                        return (
+                                            <motion.div
+                                                key={index}
+                                                custom={yOffset}
+                                                variants={{
+                                                    hidden: { opacity: 0, scale: 0, y: 50 },
+                                                    visible: (y) => ({ 
+                                                        opacity: 1, 
+                                                        scale: 1, 
+                                                        y: y, 
+                                                        transition: { 
+                                                            type: "spring", 
+                                                            stiffness: 200, 
+                                                            damping: 15 
+                                                        } 
+                                                    })
+                                                }}
+                                                className="relative group p-1 sm:p-2 hover:bg-white/5 rounded-lg transition-colors cursor-pointer"
+                                                style={{ marginTop: '-20px' }} // Pull up slightly to reduce gap
+                                            >
+                                                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
+                                                    {skill.icon}
+                                                </div>
+                                                
+                                                {/* Tooltip */}
+                                                <div className="hidden md:block absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-800 text-white text-[10px] sm:text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-700 z-10">
+                                                    {skill.title}
+                                                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800" />
+                                                </div>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Old Social Icons
                     <div className="flex justify-center gap-10">
                         <a href="https://www.linkedin.com/in/agustinmontes10/" target="_blank">
                             <svg className="" viewBox="0 0 128 128" height={40} width={40}>
@@ -81,13 +170,63 @@ const HeroSection = () => {
                                 <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path><path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"></path><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"></polygon><path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"></path><path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"></path>
                             </svg>
                         </a>
-                    </div>
+                    </div> 
+                    */}
                 </div>
             </div>
-            <div className="mt-12  flex items-center gap-4 relative left-0">
-                <Download size={52} className="animate-pulse" />
-                <p>{t("hero.downloadCV")}</p>
+            <div className="mt-12 flex gap-6 z-10">
+                {/* Preview Button */}
+                <button 
+                    onClick={() => setShowPreview(true)}
+                    className="flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all group cursor-pointer"
+                >
+                    <Eye size={20} className="text-gray-400 group-hover:text-blue-400 transition-colors" />
+                    <span className="text-gray-300 group-hover:text-white">Preview CV</span>
+                </button>
+
+                {/* Download Button */}
+                <a 
+                    href="/AgustinMontesCV2.pdf" 
+                    download="Agustin_Montes_CV.pdf"
+                    className="flex items-center gap-2 px-6 py-3 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-full transition-all group cursor-pointer"
+                >
+                    <Download size={20} className="text-blue-400 group-hover:text-blue-300 transition-colors" />
+                    <span className="text-blue-100 group-hover:text-white">{t("hero.downloadCV")}</span>
+                </a>
             </div>
+
+            {/* CV Preview Modal */}
+            <AnimatePresence>
+                {showPreview && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setShowPreview(false)}
+                        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-gray-900 rounded-lg p-2"
+                        >
+                            <button 
+                                onClick={() => setShowPreview(false)}
+                                className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors z-10"
+                            >
+                                <X size={24} />
+                            </button>
+                            <img 
+                                src="/AgustinMontesCV2.jpg" 
+                                alt="CV Preview" 
+                                className="w-full h-auto rounded shadow-2xl"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
             <div className="mt-12 animate-bounce">
                 <ChevronDown size={52} className="mx-auto" />
             </div>

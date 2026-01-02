@@ -26,8 +26,8 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed w-full z-50 transition-colors duration-700 navbar backdrop-blur-xl shadow-md">
-      <div className="container mx-auto px-6 py-4">
+    <nav className="fixed w-full z-50 transition-colors duration-700 navbar backdrop-blur-3xl shadow-md bg-[#13132e] md:bg-transparent">
+      <div className="container mx-auto px-6 py-4 ">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Image src={'/assets/avatar.png'} width={25} height={25} alt=""/>
