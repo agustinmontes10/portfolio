@@ -53,7 +53,12 @@ const resources = {
                     text: "Rocketly Web is a landing page developed on a Bolt.new base using Next.js, pure SCSS, and animations with Framer Motion. It integrates Three.js for 3D effects and features a smooth and attractive scroll-telling experience, designed to guide the user through the content in an immersive way. The entire design is intended to offer a modern, friendly, and visually striking experience, ideal for capturing attention from the first scroll."
                 },
                 project4: {
-
+                    description: "Applicacion para pizzeria, muestra de productos y control de ordenes y stock",
+                    text: "Napo’s es una aplicación web desarrollada para optimizar la gestión de pedidos de una pizzería, construida con Next.js y una arquitectura moderna orientada a rendimiento y escalabilidad. La aplicación integra una base de datos en tiempo real para la administración de órdenes, control de stock y validación de horarios, garantizando un flujo de pedidos eficiente y confiable."
+                },
+                project5: {
+                    description: "Website for a travel agency, selling tour packages",
+                    text: "I developed a website for a travel agency focused on building trust and facilitating the exploration of international destinations. I optimized the navigation experience so users could quickly find key information and easily consult it. I implemented a responsive design to ensure proper display on mobile, tablet, and desktop. The result is a modern, clear website geared towards generating real inquiries for the business."
                 }
             },
             skills: {
@@ -122,6 +127,10 @@ const resources = {
                 project4: {
                     description: "Applicacion para pizzeria, muestra de productos y control de ordenes y stock",
                     text: "Napo’s es una aplicación web desarrollada para optimizar la gestión de pedidos de una pizzería, construida con Next.js y una arquitectura moderna orientada a rendimiento y escalabilidad. La aplicación integra una base de datos en tiempo real para la administración de órdenes, control de stock y validación de horarios, garantizando un flujo de pedidos eficiente y confiable."
+                },
+                project5: {
+                    description: "Sitio web para una agencia de viajes, venta de paquetes turisticos",
+                    text: "Desarrollé el sitio web de una agencia de viajes enfocado en transmitir confianza y facilitar la exploración de destinos internacionales. Optimicé la experiencia de navegación para que los usuarios encuentren rápidamente información clave y puedan consultar con facilidad. Trabajé el diseño responsive para asegurar una visualización correcta en mobile, tablet y desktop. El resultado es una web moderna, clara y orientada a generar consultas reales para el negocio"
                 }
             },
             skills: {

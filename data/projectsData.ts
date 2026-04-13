@@ -13,19 +13,19 @@ export interface ProjectProps {
 
 export const projects: ProjectProps[] = [
     {
-        id: 1,
-        description: "project1.description",
-        text: "project1.text",
-        title: "Carpooling App",
-        image: "/assets/projects/carpoolingApp.png",
-        tags: ["TypeScript", "React", "Firebase", 'Tailwind CSS', 'Next.js'],
+        id: 3,
+        title: "Rocketly Web",
+        description: "project3.description",
+        text: "project3.text",
+        image: "/assets/projects/rocketly1.png",
+        tags: ["Next.js", "TailwindCSS", 'Typescript'],
         images: [
-            "/assets/projects/carpoolingAppScreen1.png",
-            "/assets/projects/carpoolingAppScreen2.png",
-            "/assets/projects/carpoolingAppScreen3.png",
+            '/assets/projects/rocketly1.png',
+            '/assets/projects/rocketly2.png',
+            '/assets/projects/rocketly3.png'
         ],
-        deployment: 'https://carpooling-app-blue.vercel.app/',
-        linkGithub: '',
+        deployment: 'https://rocketly.com.ar/',
+        linkGithub: 'https://github.com/agustinmontes10/rocketly-web',
     },
     {
         id: 2,
@@ -33,7 +33,7 @@ export const projects: ProjectProps[] = [
         description: "project2.description",
         text: "project2.text",
         image: "/assets/projects/project-seguros.png",
-        tags: ["React", "Node.js", "MongoDB"],
+        tags: ["Next.js", "Node.js", "MongoDB", 'Typescript'],
         images: [
             "/assets/projects/rivoltaSegurosScreen1.png",
             "/assets/projects/rivoltaSegurosScreen2.png"
@@ -42,20 +42,21 @@ export const projects: ProjectProps[] = [
         linkGithub: '',
     },
     {
-        id: 3,
-        title: "Rocketly Web",
-        description: "project3.description",
-        text: "project3.text",
-        image: "/assets/projects/rocketlyWeb.png",
-        tags: ["React", "TailwindCSS"],
+        id: 5,
+        title: "Agencia de Viajes",
+        description: "project5.description",
+        text: "project5.text",
+        image: "/assets/projects/turismo1.png",
+           tags: ["Next.js", "TailwindCSS", "TypeScript", "Supabase"],
         images: [
-            '/assets/projects/rocketlyWebScreen1.png',
-            '/assets/projects/rocketlyWebScreen2.png',
-            '/assets/projects/rocketlyWebScreen3.png'
+            '/assets/projects/turismo1.png',
+            '/assets/projects/turismo2.png',
+            '/assets/projects/turismo3.png'
         ],
-        deployment: 'https://rocketly-web.vercel.app/',
-        linkGithub: 'https://github.com/agustinmontes10/rocketly-web',
+        deployment: 'https://mtturismo.com/',
+        linkGithub: '',
     },
+   
     {
         id: 4,
         title: "Napo's",
@@ -70,5 +71,21 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://napos.vercel.app/',
         linkGithub: '',
-    }
+    },
+    {
+        id: 1,
+        description: "project1.description",
+        text: "project1.text",
+        title: "Carpooling App",
+        image: "/assets/projects/carpoolingApp.png",
+        tags: ["TypeScript", "React", "Firebase", 'Tailwind CSS', 'Next.js'],
+        images: [
+            "/assets/projects/carpoolingAppScreen1.png",
+            "/assets/projects/carpoolingAppScreen2.png",
+            "/assets/projects/carpoolingAppScreen3.png",
+        ],
+        deployment: 'https://carpooling-app-blue.vercel.app/',
+        linkGithub: '',
+    },
+
 ];

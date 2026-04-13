@@ -190,7 +190,7 @@ const HeroSection = () => {
 
                 {/* Download Button */}
                 <a 
-                    href="/AgustinMontesCV2.pdf" 
+                    href="/AgustinMontes3.pdf" 
                     download="Agustin_Montes_CV.pdf"
                     className="flex items-center gap-2 px-6 py-3 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-full transition-all group cursor-pointer"
                 >
@@ -223,7 +223,7 @@ const HeroSection = () => {
                                 <X size={24} />
                             </button>
                             <img 
-                                src="/AgustinMontesCV2.jpg" 
+                                src="/AgustinMontesCV3.jpg" 
                                 alt="CV Preview" 
                                 className="w-full h-auto rounded shadow-2xl"
                             />
