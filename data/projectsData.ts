@@ -1,4 +1,6 @@
 
+export type ProjectCategory = 'web' | 'automation';
+
 export interface ProjectProps {
     id: number;
     title: string;
@@ -9,6 +11,7 @@ export interface ProjectProps {
     text: string;
     deployment: string;
     linkGithub: string;
+    category: ProjectCategory;
 }
 
 export const projects: ProjectProps[] = [
@@ -26,6 +29,7 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://rocketly.com.ar/',
         linkGithub: 'https://github.com/agustinmontes10/rocketly-web',
+        category: 'web',
     },
     {
         id: 2,
@@ -40,6 +44,7 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://rivolta-seguros.vercel.app/',
         linkGithub: '',
+        category: 'web',
     },
     {
         id: 5,
@@ -47,7 +52,7 @@ export const projects: ProjectProps[] = [
         description: "project5.description",
         text: "project5.text",
         image: "/assets/projects/turismo1.png",
-           tags: ["Next.js", "TailwindCSS", "TypeScript", "Supabase"],
+        tags: ["Next.js", "TailwindCSS", "TypeScript", "Supabase"],
         images: [
             '/assets/projects/turismo1.png',
             '/assets/projects/turismo2.png',
@@ -55,15 +60,15 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://mtturismo.com/',
         linkGithub: '',
+        category: 'web',
     },
-   
     {
         id: 4,
         title: "Napo's",
         description: "project4.description",
         text: "project4.text",
         image: "/assets/projects/napos1.png",
-           tags: ["React", "TailwindCSS", "Next.js", "TypeScript", "Firebase"],
+        tags: ["React", "TailwindCSS", "Next.js", "TypeScript", "Firebase"],
         images: [
             '/assets/projects/napos1.png',
             '/assets/projects/napos2.png',
@@ -71,6 +76,7 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://napos.vercel.app/',
         linkGithub: '',
+        category: 'web',
     },
     {
         id: 1,
@@ -86,6 +92,6 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://carpooling-app-blue.vercel.app/',
         linkGithub: '',
+        category: 'web',
     },
-
 ];

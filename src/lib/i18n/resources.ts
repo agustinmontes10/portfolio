@@ -10,6 +10,7 @@ const resources = {
                 role: 'Developer',
                 subtitle: "Full Stack Web Developer",
                 downloadCV: "Download CV",
+                available: "Available for work",
             },
             contact: {
                 title: "Contact",
@@ -40,6 +41,12 @@ const resources = {
             },
             projects: {
                 title: "Projects",
+                filter: {
+                    all: "All",
+                    web: "Web Dev",
+                    automation: "Automation",
+                },
+                empty: "Coming soon...",
                 project1: {
                     description: "Carpooling app to share rides",
                     text: "Carpooling platform developed with modern technologies. Next.js and React were used to create a smooth and responsive interface, Firebase for authentication and real-time data storage, and Tailwind CSS for an attractive and adaptable design. The app allows users to post rides, book seats, chat in real time, and rate other users, fostering a safe and collaborative ride-sharing community."
@@ -64,6 +71,16 @@ const resources = {
             skills: {
                 title: "Skills",
             },
+            projectDetail: {
+                back: "Back",
+                viewLive: "View live",
+                sourceCode: "Source code",
+                loading: "Loading project...",
+                notFound: "Project not found",
+                backToProjects: "Back to all projects",
+                techStack: "Tech stack",
+                overview: "Overview",
+            },
             navbar: {
                 home: "Home",
                 skills: "Skills",
@@ -82,6 +99,7 @@ const resources = {
                 role: 'Developer',
                 subtitle: "Desarrollador Web Full Stack",
                 downloadCV: "Descargar CV",
+                available: "Disponible para trabajar",
             },
             contact: {
                 title: "Contacto", // "Contact" en inglés
@@ -112,6 +130,12 @@ const resources = {
             },
             projects: {
                 title: "Proyectos",
+                filter: {
+                    all: "Todos",
+                    web: "Web Dev",
+                    automation: "Automatizaciones",
+                },
+                empty: "Próximamente...",
                 project1: {
                     description: "Aplicación de carpooling para compartir viajes",
                     text: "Plataforma de carpooling desarrollada con tecnologías modernas. Next.js y React se utilizaron para crear una interfaz fluida y responsiva, Firebase para la autenticación y almacenamiento de datos en tiempo real, y Tailwind CSS para un diseño atractivo y adaptable. La aplicación permite a los usuarios publicar viajes, reservar asientos, chatear en tiempo real y calificar a otros usuarios, fomentando una comunidad segura y colaborativa de viajes compartidos.",
@@ -135,6 +159,16 @@ const resources = {
             },
             skills: {
                 title: "Habilidades",
+            },
+            projectDetail: {
+                back: "Volver",
+                viewLive: "Ver en vivo",
+                sourceCode: "Código fuente",
+                loading: "Cargando proyecto...",
+                notFound: "Proyecto no encontrado",
+                backToProjects: "Ver todos los proyectos",
+                techStack: "Tecnologías",
+                overview: "Descripción",
             },
             navbar: {
                 home: "Inicio",

@@ -25,6 +25,13 @@ body {
 
 }
 
+/* Film grain texture (SVG fractal noise) for the site background */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+
 .navbar {
   a {
     position: relative;
@@ -48,51 +55,6 @@ body {
   }
 }
 
-.project {
-  .project-information {
-    position: relative;
-
-    .arrow {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      margin: 20px;
-      transition: 0.7s all ease;
-
-      svg {
-        width: 40px;
-        height: 40px;
-      }
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      height: 100px;
-      width: 125px;
-      bottom: 0;
-      right: 0;
-      background-color: #0a0b1c;
-      border-top-left-radius: 50px;
-      transition: 0.7s all ease;
-    }
-  }
-
-
-
-  &:hover {
-    .project-information::before {
-      transform: scale(1.5);
-    }
-
-    .arrow {
-      transform: scale(1.2);
-
-      margin-right: 30px;
-      margin-bottom: 30px;
-    }
-  }
-}
 
 .swiper-3d .swiper-slide-shadow {
   background: transparent;
