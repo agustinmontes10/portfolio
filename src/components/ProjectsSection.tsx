@@ -47,7 +47,7 @@ const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState<FilterTab>('all');
 
   const filtered =
-    activeFilter === 'all' ? projects : projects.filter(p => p.category === activeFilter);
+    activeFilter === 'all' ? projects : projects.filter(p => p.categories.includes(activeFilter));
 
   return (
     <section className="py-24 px-4 sm:px-6" id="projects">
@@ -113,8 +113,7 @@ const ProjectsSection = () => {
               </motion.div>
             ) : (
               filtered.map((project, index) => {
-                const cat = categoryConfig[project.category];
-                const Icon = cat.icon;
+                const primary = categoryConfig[project.categories[0]];
 
                 return (
                   <motion.div
@@ -130,7 +129,7 @@ const ProjectsSection = () => {
                   >
                     <Link href={`/projects/${project.id}`}>
                       <div
-                        className={`group relative rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.02] transition-all duration-300 ${cat.cardHoverBorder}`}
+                        className={`group relative rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.02] transition-all duration-300 ${primary.cardHoverBorder}`}
                       >
                         {/* Image */}
                         <div className="relative overflow-hidden h-52 sm:h-64 bg-[#080c14]">
@@ -138,14 +137,25 @@ const ProjectsSection = () => {
                             src={project.image}
                             alt={project.title}
                             fill
+                            sizes="(max-width: 640px) 100vw, 45vw"
+                            loading="eager"
                             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                           />
-                          {/* Category badge */}
-                          <div
-                            className={`absolute top-3 left-3 flex items-center gap-1.5 ${cat.badgeBg} ${cat.textColor} border ${cat.badgeBorder} text-xs px-3 py-1 rounded-full backdrop-blur-sm font-medium`}
-                          >
-                            <Icon size={11} />
-                            {cat.label}
+                          {/* Category badges */}
+                          <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                            {project.categories.map((c) => {
+                              const m = categoryConfig[c];
+                              const Icon = m.icon;
+                              return (
+                                <span
+                                  key={c}
+                                  className={`flex items-center gap-1.5 ${m.badgeBg} ${m.textColor} border ${m.badgeBorder} text-xs px-3 py-1 rounded-full backdrop-blur-sm font-medium`}
+                                >
+                                  <Icon size={11} />
+                                  {m.label}
+                                </span>
+                              );
+                            })}
                           </div>
                         </div>
 
@@ -157,7 +167,7 @@ const ProjectsSection = () => {
                             </h3>
                             <ArrowRight
                               size={16}
-                              className={`shrink-0 mt-0.5 ${cat.textColor} opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200`}
+                              className={`shrink-0 mt-0.5 ${primary.textColor} opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200`}
                             />
                           </div>
 

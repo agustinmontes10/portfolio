@@ -11,10 +11,41 @@ export interface ProjectProps {
     text: string;
     deployment: string;
     linkGithub: string;
-    category: ProjectCategory;
+    categories: ProjectCategory[];
 }
 
 export const projects: ProjectProps[] = [
+    {
+        id: 6,
+        title: "Aesthetic",
+        description: "project6.description",
+        text: "project6.text",
+        image: "/assets/projects/aesthetic.png",
+        tags: ["Next.js", "Hono", "n8n", "MercadoPago", "TypeScript", "Tailwind CSS", "Drizzle", "PostgreSQL", "Supabase", "WhatsApp API", "Cloudflare", "Vercel"],
+        images: [
+            '/assets/projects/aesthetic.png',
+            '/assets/projects/aesthetic2.png',
+            '/assets/projects/aesthetic3.png',
+            '/assets/projects/aesthetic4.png',
+        ],
+        deployment: 'https://aestheticapp.com.ar/',
+        linkGithub: '',
+        categories: ['web', 'automation'],
+    },
+    {
+        id: 7,
+        title: "Chatbot Consorcios",
+        description: "project7.description",
+        text: "project7.text",
+        image: "/assets/projects/ferrarioAsociados-preview.png",
+        tags: ["WhatsApp API", "Chatwoot", "n8n"],
+        images: [
+            '/assets/projects/ferrarioAsociados-preview.png',
+        ],
+        deployment: '',
+        linkGithub: '',
+        categories: ['automation'],
+    },
     {
         id: 3,
         title: "Rocketly Web",
@@ -29,7 +60,7 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://rocketly.com.ar/',
         linkGithub: 'https://github.com/agustinmontes10/rocketly-web',
-        category: 'web',
+        categories: ['web'],
     },
     {
         id: 2,
@@ -44,7 +75,7 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://rivolta-seguros.vercel.app/',
         linkGithub: '',
-        category: 'web',
+        categories: ['web'],
     },
     {
         id: 5,
@@ -60,7 +91,7 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://mtturismo.com/',
         linkGithub: '',
-        category: 'web',
+        categories: ['web'],
     },
     {
         id: 4,
@@ -76,7 +107,7 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://napos.vercel.app/',
         linkGithub: '',
-        category: 'web',
+        categories: ['web'],
     },
     {
         id: 1,
@@ -92,6 +123,6 @@ export const projects: ProjectProps[] = [
         ],
         deployment: 'https://carpooling-app-blue.vercel.app/',
         linkGithub: '',
-        category: 'web',
+        categories: ['web'],
     },
 ];

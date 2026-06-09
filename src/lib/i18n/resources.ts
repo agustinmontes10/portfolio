@@ -47,6 +47,14 @@ const resources = {
                     automation: "Automation",
                 },
                 empty: "Coming soon...",
+                project6: {
+                    description: "SaaS to manage appointments for salons and aesthetic centers",
+                    text: "Aesthetic is a SaaS I built end to end to manage appointments for hair salons and aesthetic centers. Each business onboards with its own MercadoPago account via OAuth, enabling both platform subscriptions and deposit payments for bookings. A WhatsApp chatbot built on Meta's official API lets clients book and manage appointments through conversation. The frontend is built with Next.js, Tailwind and TypeScript (deployed on Vercel), while the backend runs on Hono, Drizzle and PostgreSQL over Supabase, deployed on Cloudflare. Business automations and integrations are orchestrated with a self-hosted n8n instance."
+                },
+                project7: {
+                    description: "WhatsApp chatbot for a property management company",
+                    text: "A WhatsApp chatbot built for a property management company (administración de consorcios). It answers frequently asked questions automatically and routes conversations to human advisors when needed, integrating with Chatwoot as the inbox and agent system so the team can pick up chats seamlessly. It also runs automated satisfaction surveys and other conversational flows, reducing manual workload and speeding up response times for residents and owners."
+                },
                 project1: {
                     description: "Carpooling app to share rides",
                     text: "Carpooling platform developed with modern technologies. Next.js and React were used to create a smooth and responsive interface, Firebase for authentication and real-time data storage, and Tailwind CSS for an attractive and adaptable design. The app allows users to post rides, book seats, chat in real time, and rate other users, fostering a safe and collaborative ride-sharing community."
@@ -136,6 +144,14 @@ const resources = {
                     automation: "Automatizaciones",
                 },
                 empty: "Próximamente...",
+                project6: {
+                    description: "SaaS para gestionar turnos de peluquerías y centros de estética",
+                    text: "Aesthetic es un SaaS que desarrollé de punta a punta para gestionar turnos de peluquerías y centros de estética. Cada negocio se integra con su propia cuenta de MercadoPago mediante OAuth, habilitando tanto las suscripciones a la plataforma como el cobro de señas para las reservas. Un chatbot de WhatsApp construido sobre la API oficial de Meta permite a los clientes reservar y gestionar turnos a través de la conversación. El frontend está hecho con Next.js, Tailwind y TypeScript (deploy en Vercel), mientras que el backend corre sobre Hono, Drizzle y PostgreSQL en Supabase, con deploy en Cloudflare. Las automatizaciones e integraciones del negocio se orquestan con una instancia self-hosted de n8n."
+                },
+                project7: {
+                    description: "Chatbot de WhatsApp para una administración de consorcios",
+                    text: "Chatbot de WhatsApp desarrollado para una administración de consorcios. Responde preguntas frecuentes de forma automática y deriva las conversaciones a asesores humanos cuando es necesario, integrándose con Chatwoot como sistema de inbox para que el equipo retome los chats sin fricción. Además ejecuta encuestas de satisfacción automáticas y otros flujos conversacionales, reduciendo el trabajo manual y agilizando los tiempos de respuesta para vecinos y propietarios."
+                },
                 project1: {
                     description: "Aplicación de carpooling para compartir viajes",
                     text: "Plataforma de carpooling desarrollada con tecnologías modernas. Next.js y React se utilizaron para crear una interfaz fluida y responsiva, Firebase para la autenticación y almacenamiento de datos en tiempo real, y Tailwind CSS para un diseño atractivo y adaptable. La aplicación permite a los usuarios publicar viajes, reservar asientos, chatear en tiempo real y calificar a otros usuarios, fomentando una comunidad segura y colaborativa de viajes compartidos.",

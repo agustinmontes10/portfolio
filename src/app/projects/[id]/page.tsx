@@ -77,9 +77,6 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
         );
     }
 
-    const cat = categoryMeta[project.category];
-    const CatIcon = cat.icon;
-
     return (
         <div className="relative min-h-screen bg-[#060609] text-gray-300">
             <Background />
@@ -117,10 +114,21 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
 
                         {/* Info */}
                         <div className="flex flex-col">
-                            {/* Category badge */}
-                            <div className={`inline-flex self-start items-center gap-1.5 ${cat.bg} ${cat.text} border ${cat.border} text-xs px-3 py-1 rounded-full font-medium mb-5`}>
-                                <CatIcon size={12} />
-                                {cat.label}
+                            {/* Category badges */}
+                            <div className="flex flex-wrap gap-2 mb-5">
+                                {project.categories.map((c) => {
+                                    const m = categoryMeta[c];
+                                    const Icon = m.icon;
+                                    return (
+                                        <span
+                                            key={c}
+                                            className={`inline-flex items-center gap-1.5 ${m.bg} ${m.text} border ${m.border} text-xs px-3 py-1 rounded-full font-medium`}
+                                        >
+                                            <Icon size={12} />
+                                            {m.label}
+                                        </span>
+                                    );
+                                })}
                             </div>
 
                             <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
@@ -159,6 +167,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                             </div>
 
                             {/* Actions */}
+                            {(project.deployment || project.linkGithub) && (
                             <div className="flex flex-wrap gap-3 mt-10">
                                 {project.deployment && (
                                     <a
@@ -183,6 +192,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                                     </a>
                                 )}
                             </div>
+                            )}
                         </div>
                     </div>
 
