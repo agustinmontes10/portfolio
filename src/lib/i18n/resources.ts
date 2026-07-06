@@ -7,8 +7,8 @@ const resources = {
             description: "This is a showcase of my work",
             hero: {
                 title: "Hi, I'm",
-                role: 'Developer',
-                subtitle: "Full Stack Web Developer",
+                role: 'AI Developer',
+                subtitle: "AI Agents, Automations & Full Stack Web Development",
                 downloadCV: "Download CV",
                 available: "Available for work",
             },
@@ -45,15 +45,24 @@ const resources = {
                     all: "All",
                     web: "Web Dev",
                     automation: "Automation",
+                    aiAgent: "AI Agents",
                 },
                 empty: "Coming soon...",
                 project6: {
                     description: "SaaS to manage appointments for salons and aesthetic centers",
                     text: "Aesthetic is a SaaS I built end to end to manage appointments for hair salons and aesthetic centers. Each business onboards with its own MercadoPago account via OAuth, enabling both platform subscriptions and deposit payments for bookings. A WhatsApp chatbot built on Meta's official API lets clients book and manage appointments through conversation. The frontend is built with Next.js, Tailwind and TypeScript (deployed on Vercel), while the backend runs on Hono, Drizzle and PostgreSQL over Supabase, deployed on Cloudflare. Business automations and integrations are orchestrated with a self-hosted n8n instance."
                 },
+                project8: {
+                    description: "AI agent that manages WhatsApp bookings for the Aesthetic SaaS",
+                    text: "The conversational engine behind Aesthetic's WhatsApp bot. Built in n8n around an AI Agent node connected to OpenAI, it keeps a memory of the conversation per client and calls a set of tools — search or create clients, list services, check available hours and agenda, book and cancel appointments — to resolve the entire booking flow in natural language. It identifies the business and client from the incoming WhatsApp webhook, persists the conversation history, and replies through the WhatsApp API, letting each business run its own AI receptionist with no manual intervention."
+                },
                 project7: {
                     description: "WhatsApp chatbot for a property management company",
                     text: "A WhatsApp chatbot built for a property management company (administración de consorcios). It answers frequently asked questions automatically and routes conversations to human advisors when needed, integrating with Chatwoot as the inbox and agent system so the team can pick up chats seamlessly. It also runs automated satisfaction surveys and other conversational flows, reducing manual workload and speeding up response times for residents and owners."
+                },
+                project9: {
+                    description: "WhatsApp AI agent for tracking personal expenses and budgets by voice or text",
+                    text: "A personal finance assistant that lives inside WhatsApp. Built with n8n around an OpenAI-powered AI Agent, it understands both typed messages and voice notes — audio is downloaded and transcribed with Whisper before reaching the agent. It exposes tools to register, edit, delete and list expenses, define and compare budgets per category and period, and check spending against the stored limits in Postgres. When a budget limit is reached, it automatically generates a MercadoPago payment link through the API, closing the loop between tracking and payment."
                 },
                 project1: {
                     description: "Carpooling app to share rides",
@@ -104,8 +113,8 @@ const resources = {
             description: "Este es un resumen de mi trabajo",
             hero: {
                 title: "Hola, soy",
-                role: 'Developer',
-                subtitle: "Desarrollador Web Full Stack",
+                role: 'AI Developer',
+                subtitle: "Agentes de IA, Automatizaciones y Desarrollo Web Full Stack",
                 downloadCV: "Descargar CV",
                 available: "Disponible para trabajar",
             },
@@ -142,15 +151,24 @@ const resources = {
                     all: "Todos",
                     web: "Web Dev",
                     automation: "Automatizaciones",
+                    aiAgent: "Agentes de IA",
                 },
                 empty: "Próximamente...",
                 project6: {
                     description: "SaaS para gestionar turnos de peluquerías y centros de estética",
                     text: "Aesthetic es un SaaS que desarrollé de punta a punta para gestionar turnos de peluquerías y centros de estética. Cada negocio se integra con su propia cuenta de MercadoPago mediante OAuth, habilitando tanto las suscripciones a la plataforma como el cobro de señas para las reservas. Un chatbot de WhatsApp construido sobre la API oficial de Meta permite a los clientes reservar y gestionar turnos a través de la conversación. El frontend está hecho con Next.js, Tailwind y TypeScript (deploy en Vercel), mientras que el backend corre sobre Hono, Drizzle y PostgreSQL en Supabase, con deploy en Cloudflare. Las automatizaciones e integraciones del negocio se orquestan con una instancia self-hosted de n8n."
                 },
+                project8: {
+                    description: "Agente de IA que gestiona las reservas por WhatsApp del SaaS Aesthetic",
+                    text: "El motor conversacional detrás del bot de WhatsApp de Aesthetic. Construido en n8n alrededor de un nodo AI Agent conectado a OpenAI, mantiene memoria de la conversación por cliente y llama a un conjunto de tools —buscar o crear clientes, listar servicios, consultar horarios y agenda, reservar y cancelar turnos— para resolver todo el flujo de reserva en lenguaje natural. Identifica el negocio y el cliente a partir del webhook de WhatsApp entrante, persiste el historial de la conversación y responde a través de la API de WhatsApp, permitiendo que cada negocio tenga su propia recepcionista de IA sin intervención manual."
+                },
                 project7: {
                     description: "Chatbot de WhatsApp para una administración de consorcios",
                     text: "Chatbot de WhatsApp desarrollado para una administración de consorcios. Responde preguntas frecuentes de forma automática y deriva las conversaciones a asesores humanos cuando es necesario, integrándose con Chatwoot como sistema de inbox para que el equipo retome los chats sin fricción. Además ejecuta encuestas de satisfacción automáticas y otros flujos conversacionales, reduciendo el trabajo manual y agilizando los tiempos de respuesta para vecinos y propietarios."
+                },
+                project9: {
+                    description: "Agente de IA por WhatsApp para registrar gastos y presupuestos personales por voz o texto",
+                    text: "Un asistente de finanzas personales que vive dentro de WhatsApp. Construido con n8n alrededor de un AI Agent potenciado por OpenAI, entiende tanto mensajes de texto como notas de voz —el audio se descarga y se transcribe con Whisper antes de llegar al agente. Expone tools para registrar, editar, eliminar y listar gastos, definir y comparar presupuestos por categoría y período, y verificar el gasto contra los límites guardados en Postgres. Cuando se alcanza un límite de presupuesto, genera automáticamente un link de pago de MercadoPago a través de su API, cerrando el circuito entre el registro y el pago."
                 },
                 project1: {
                     description: "Aplicación de carpooling para compartir viajes",

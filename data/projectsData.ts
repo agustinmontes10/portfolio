@@ -1,5 +1,5 @@
 
-export type ProjectCategory = 'web' | 'automation';
+export type ProjectCategory = 'web' | 'automation' | 'ai-agent';
 
 export interface ProjectProps {
     id: number;
@@ -33,6 +33,22 @@ export const projects: ProjectProps[] = [
         categories: ['web', 'automation'],
     },
     {
+        id: 8,
+        title: "Aesthetic Booking Agent",
+        description: "project8.description",
+        text: "project8.text",
+        image: "/assets/projects/aestheticAgent2.png",
+        tags: ["n8n", "OpenAI", "AI Agent", "WhatsApp API", "PostgreSQL"],
+        images: [
+            '/assets/projects/aestheticAgent2.png',
+            '/assets/projects/aestheticAgent1.png',
+            '/assets/projects/aestheticAgent3.png',
+        ],
+        deployment: '',
+        linkGithub: '',
+        categories: ['ai-agent'],
+    },
+    {
         id: 7,
         title: "Chatbot Consorcios",
         description: "project7.description",
@@ -45,6 +61,22 @@ export const projects: ProjectProps[] = [
         deployment: '',
         linkGithub: '',
         categories: ['automation'],
+    },
+    {
+        id: 9,
+        title: "Personal Finance Assistant",
+        description: "project9.description",
+        text: "project9.text",
+        image: "/assets/projects/personalAsisstantAgent3.png",
+        tags: ["n8n", "OpenAI", "Whisper", "AI Agent", "WhatsApp API", "PostgreSQL", "MercadoPago"],
+        images: [
+            '/assets/projects/personalAsisstantAgent3.png',
+            '/assets/projects/personalAsisstantAgent1.png',
+            '/assets/projects/personalAsisstantAgent2.png',
+        ],
+        deployment: '',
+        linkGithub: '',
+        categories: ['ai-agent'],
     },
     {
         id: 3,

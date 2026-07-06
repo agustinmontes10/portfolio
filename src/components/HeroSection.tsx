@@ -70,7 +70,7 @@ const HeroSection = () => {
                         {markerAnimation && (
                             <Lottie
                                 animationData={markerAnimation}
-                                className="absolute top-[-90%] left-[-5%] w-[110%] pointer-events-none -z-1"
+                                className="absolute top-[-135%] left-[-5%] w-[110%] pointer-events-none -z-1"
                                 loop={false}
                             />
                         )}
@@ -78,18 +78,18 @@ const HeroSection = () => {
                 </h1>
 
                 {/* Subtitle + spinning words */}
-                <div className="flex flex-col md:flex-row items-center gap-2 text-xl md:text-2xl justify-center mt-8">
+                <div className="flex flex-col items-center gap-2 text-xl md:text-2xl justify-center mt-8">
                     <p className="text-gray-400">{t("hero.subtitle")}</p>
-                    <span className="words text-center md:text-start">
-                        <p className="word">next.js</p>
+                    <span className="words text-center">
                         <p className="word">n8n</p>
+                        <p className="word">llms</p>
+                        <p className="word">next.js</p>
                         <p className="word">node.js</p>
                         <p className="word">react</p>
                         <p className="word">typescript</p>
+                        <p className="word">supabase</p>
                         <p className="word">firebase</p>
                         <p className="word">tailwind</p>
-                        <p className="word">supabase</p>
-                        <p className="word">bootstrap</p>
                         <p className="word">others..</p>
                     </span>
                 </div>

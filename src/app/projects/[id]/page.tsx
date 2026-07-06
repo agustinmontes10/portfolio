@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ArrowRight, ExternalLink, Github, Globe, Zap } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Github, Globe, Zap, Bot } from "lucide-react";
 import { ProjectProps, ProjectCategory, projects } from "../../../../data/projectsData";
 import Background from "@/components/Background";
 
@@ -30,6 +30,13 @@ const categoryMeta: Record<ProjectCategory, {
         text: "text-violet-400",
         bg: "bg-violet-500/10",
         border: "border-violet-500/20",
+    },
+    'ai-agent': {
+        label: "AI Agent",
+        icon: Bot,
+        text: "text-emerald-400",
+        bg: "bg-emerald-500/10",
+        border: "border-emerald-500/20",
     },
 };
 

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Globe, Zap } from 'lucide-react';
+import { ArrowRight, Globe, Zap, Bot } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -34,12 +34,21 @@ const categoryConfig: Record<ProjectCategory, {
     badgeBorder: 'border-violet-500/20',
     cardHoverBorder: 'hover:border-violet-500/30',
   },
+  'ai-agent': {
+    label: 'AI Agent',
+    icon: Bot,
+    textColor: 'text-emerald-400',
+    badgeBg: 'bg-emerald-500/10',
+    badgeBorder: 'border-emerald-500/20',
+    cardHoverBorder: 'hover:border-emerald-500/30',
+  },
 };
 
 const TABS: { id: FilterTab; labelKey: string }[] = [
   { id: 'all', labelKey: 'projects.filter.all' },
-  { id: 'web', labelKey: 'projects.filter.web' },
+  { id: 'ai-agent', labelKey: 'projects.filter.aiAgent' },
   { id: 'automation', labelKey: 'projects.filter.automation' },
+  { id: 'web', labelKey: 'projects.filter.web' },
 ];
 
 const ProjectsSection = () => {

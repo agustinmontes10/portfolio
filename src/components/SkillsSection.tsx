@@ -1,4 +1,4 @@
-import { Code } from "lucide-react";
+import { Code, Bot, Mic, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -100,6 +100,25 @@ export const skills = {
 
         }
     ],
+    'AI & Automation': [
+        {
+            icon:
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit={2}><path d="M512 179.2c0 28.267-23.51 51.2-52.522 51.2-24.448 0-45.014-16.32-50.86-38.4h-73.3c-12.843 0-23.787 9.045-25.9 21.397l-2.154 12.63A50.917 50.917 0 01290.197 256c8.79 7.552 15.02 18.005 17.067 29.973l2.133 12.63c2.262 12.458 13.291 21.546 25.942 21.397h20.8c5.824-22.08 26.39-38.4 50.859-38.4 29.013 0 52.5 22.933 52.5 51.2 0 28.267-23.53 51.2-52.5 51.2-24.47 0-45.014-16.32-50.86-38.4h-20.8c-25.685 0-47.573-18.09-51.797-42.773l-2.154-12.63c-2.262-12.437-13.27-21.525-25.899-21.397h-21.461c-6.57 20.992-26.582 36.267-50.262 36.267s-43.69-15.275-50.24-36.267h-30.762c-6.571 20.992-26.582 36.267-50.24 36.267-29.014 0-52.523-22.934-52.523-51.2 0-28.267 23.51-51.2 52.523-51.2 25.237 0 46.336 17.386 51.37 40.533h28.523c5.035-23.147 26.133-40.533 51.37-40.533 25.26 0 46.337 17.386 51.371 40.533h20.31c12.821 0 23.786-9.045 25.877-21.397l2.176-12.63c4.224-24.682 26.133-42.773 51.798-42.773h73.3c5.846-22.08 26.412-38.4 50.86-38.4C488.49 128 512 150.933 512 179.2zm-26.24 0c0 14.144-11.776 25.6-26.282 25.6-14.507 0-26.24-11.456-26.24-25.6 0-14.144 11.733-25.6 26.24-25.6 14.506 0 26.26 11.456 26.26 25.6h.022zM52.501 279.467c14.507 0 26.24-11.456 26.24-25.6 0-14.144-11.733-25.6-26.24-25.6-14.506 0-26.261 11.456-26.261 25.6 0 14.144 11.733 25.6 26.24 25.6h.021zm131.264 0c14.507 0 26.262-11.456 26.262-25.6 0-14.144-11.734-25.6-26.24-25.6-14.507 0-26.262 11.456-26.262 25.6 0 14.144 11.734 25.6 26.24 25.6zm223.19 78.933c14.507 0 26.24-11.456 26.24-25.6 0-14.144-11.733-25.6-26.24-25.6-14.507 0-26.24 11.456-26.24 25.6 0 14.144 11.733 25.6 26.24 25.6z" fill="#ea4b71" /></svg>,
+            title: 'N8N'
+        },
+        {
+            icon: <Bot className="w-full h-full" strokeWidth={1.5} />,
+            title: 'OpenAI API'
+        },
+        {
+            icon: <Mic className="w-full h-full" strokeWidth={1.5} />,
+            title: 'Whisper'
+        },
+        {
+            icon: <MessageCircle className="w-full h-full" strokeWidth={1.5} />,
+            title: 'WhatsApp API'
+        }
+    ],
     Others: [
         {
             icon:
@@ -115,17 +134,21 @@ export const skills = {
                     <path fill="#0acf83" d="M45.5 129c11.9 0 21.5-9.6 21.5-21.5V86H45.5C33.6 86 24 95.6 24 107.5S33.6 129 45.5 129zm0 0"></path><path fill="#a259ff" d="M24 64.5C24 52.6 33.6 43 45.5 43H67v43H45.5C33.6 86 24 76.4 24 64.5zm0 0"></path><path fill="#f24e1e" d="M24 21.5C24 9.6 33.6 0 45.5 0H67v43H45.5C33.6 43 24 33.4 24 21.5zm0 0"></path><path fill="#ff7262" d="M67 0h21.5C100.4 0 110 9.6 110 21.5S100.4 43 88.5 43H67zm0 0"></path><path fill="#1abcfe" d="M110 64.5c0 11.9-9.6 21.5-21.5 21.5S67 76.4 67 64.5 76.6 43 88.5 43 110 52.6 110 64.5zm0 0"></path>
                 </svg>,
             title: 'Figma'
-        },
-        {
-            icon:
-                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M512 179.2c0 28.267-23.51 51.2-52.522 51.2-24.448 0-45.014-16.32-50.86-38.4h-73.3c-12.843 0-23.787 9.045-25.9 21.397l-2.154 12.63A50.917 50.917 0 01290.197 256c8.79 7.552 15.02 18.005 17.067 29.973l2.133 12.63c2.262 12.458 13.291 21.546 25.942 21.397h20.8c5.824-22.08 26.39-38.4 50.859-38.4 29.013 0 52.5 22.933 52.5 51.2 0 28.267-23.53 51.2-52.5 51.2-24.47 0-45.014-16.32-50.86-38.4h-20.8c-25.685 0-47.573-18.09-51.797-42.773l-2.154-12.63c-2.262-12.437-13.27-21.525-25.899-21.397h-21.461c-6.57 20.992-26.582 36.267-50.262 36.267s-43.69-15.275-50.24-36.267h-30.762c-6.571 20.992-26.582 36.267-50.24 36.267-29.014 0-52.523-22.934-52.523-51.2 0-28.267 23.51-51.2 52.523-51.2 25.237 0 46.336 17.386 51.37 40.533h28.523c5.035-23.147 26.133-40.533 51.37-40.533 25.26 0 46.337 17.386 51.371 40.533h20.31c12.821 0 23.786-9.045 25.877-21.397l2.176-12.63c4.224-24.682 26.133-42.773 51.798-42.773h73.3c5.846-22.08 26.412-38.4 50.86-38.4C488.49 128 512 150.933 512 179.2zm-26.24 0c0 14.144-11.776 25.6-26.282 25.6-14.507 0-26.24-11.456-26.24-25.6 0-14.144 11.733-25.6 26.24-25.6 14.506 0 26.26 11.456 26.26 25.6h.022zM52.501 279.467c14.507 0 26.24-11.456 26.24-25.6 0-14.144-11.733-25.6-26.24-25.6-14.506 0-26.261 11.456-26.261 25.6 0 14.144 11.733 25.6 26.24 25.6h.021zm131.264 0c14.507 0 26.262-11.456 26.262-25.6 0-14.144-11.734-25.6-26.24-25.6-14.507 0-26.262 11.456-26.262 25.6 0 14.144 11.734 25.6 26.24 25.6zm223.19 78.933c14.507 0 26.24-11.456 26.24-25.6 0-14.144-11.733-25.6-26.24-25.6-14.507 0-26.24 11.456-26.24 25.6 0 14.144 11.733 25.6 26.24 25.6z" fill="#ea4b71" /></svg>,
-            title: 'N8N'
         }
     ]
 };
 
+type SkillSection = 'Frontend' | 'Backend' | 'AI & Automation' | 'Others';
+
+const tabIcons: Record<SkillSection, React.ElementType> = {
+    Frontend: Code,
+    Backend: Code,
+    'AI & Automation': Bot,
+    Others: Code,
+};
+
 const SkillsSection = () => {
-    const [section, setSection] = useState<'Frontend' | 'Backend' | 'Others'>('Frontend');
+    const [section, setSection] = useState<SkillSection>('Frontend');
     const { t } = useTranslation();
 
     return (
@@ -141,18 +164,21 @@ const SkillsSection = () => {
                 <div className="w-full md:w-[60%] h-[500px] md:h-[450px] justify-start flex flex-col md:flex-row md:justify-center text-gray-400 bg-[linear-gradient(45deg,_#13203a,_transparent)] shadow-md border-2 border-[#13203a] rounded-xl p-4 sm:p-6 gap-6">
 
                     {/* Tabs */}
-                    <div className="flex flex-row h-fit items-center md:items-start md:flex-col gap-4 justify-center md:pt-2 w-full md:w-[30%] overflow-x-auto">
-                        {['Frontend', 'Backend', 'Others'].map((sec) => (
-                            <div
-                                key={sec}
-                                onMouseEnter={() => setSection(sec as 'Frontend' | 'Backend' | 'Others')}
-                                className={`flex-1 px-3 py-4 sm:px-5 sm:py-6 mx-1 md:mx-2 rounded-xl flex gap-3 cursor-pointer items-center justify-center text-sm sm:text-base font-semibold ${section === sec ? 'bg-[linear-gradient(45deg,_#152646,_transparent)]' : ''
-                                    }`}
-                            >
-                                <Code size={20} className={`${section == sec ? 'text-gray-300' : 'text-gray-400'}`} />
-                                {sec}
-                            </div>
-                        ))}
+                    <div className="flex flex-row h-fit items-center md:items-start md:flex-col gap-4 justify-center md:pt-2 w-full md:w-[38%] overflow-x-auto">
+                        {(['Frontend', 'Backend', 'AI & Automation', 'Others'] as SkillSection[]).map((sec) => {
+                            const TabIcon = tabIcons[sec];
+                            return (
+                                <div
+                                    key={sec}
+                                    onMouseEnter={() => setSection(sec)}
+                                    className={`flex-1 px-2 py-4 sm:px-4 sm:py-6 mx-1 md:mx-1 rounded-xl flex gap-2 sm:gap-3 cursor-pointer items-center justify-center text-center text-sm sm:text-base font-semibold leading-tight ${section === sec ? 'bg-[linear-gradient(45deg,_#152646,_transparent)]' : ''
+                                        }`}
+                                >
+                                    <TabIcon size={20} className={`shrink-0 ${section == sec ? 'text-gray-300' : 'text-gray-400'}`} />
+                                    {sec}
+                                </div>
+                            );
+                        })}
                     </div>
 
                     {/* Skills Content */}
