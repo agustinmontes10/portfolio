@@ -19,28 +19,28 @@ const categoryConfig: Record<ProjectCategory, {
   cardHoverBorder: string;
 }> = {
   web: {
-    label: 'Web Dev',
+    label: 'WEB',
     icon: Globe,
-    textColor: 'text-blue-400',
-    badgeBg: 'bg-blue-500/10',
-    badgeBorder: 'border-blue-500/20',
-    cardHoverBorder: 'hover:border-blue-500/30',
+    textColor: 'text-ink',
+    badgeBg: 'bg-black/60',
+    badgeBorder: 'border-white/20',
+    cardHoverBorder: 'hover:border-white/30',
   },
   automation: {
-    label: 'Automation',
+    label: 'AUTOMATION',
     icon: Zap,
-    textColor: 'text-violet-400',
-    badgeBg: 'bg-violet-500/10',
-    badgeBorder: 'border-violet-500/20',
-    cardHoverBorder: 'hover:border-violet-500/30',
+    textColor: 'text-muted',
+    badgeBg: 'bg-black/60',
+    badgeBorder: 'border-white/10',
+    cardHoverBorder: 'hover:border-white/30',
   },
   'ai-agent': {
-    label: 'AI Agent',
+    label: 'AI_AGENT',
     icon: Bot,
-    textColor: 'text-emerald-400',
-    badgeBg: 'bg-emerald-500/10',
-    badgeBorder: 'border-emerald-500/20',
-    cardHoverBorder: 'hover:border-emerald-500/30',
+    textColor: 'text-acid',
+    badgeBg: 'bg-black/60',
+    badgeBorder: 'border-acid/30',
+    cardHoverBorder: 'hover:border-acid/40',
   },
 };
 
@@ -63,17 +63,19 @@ const ProjectsSection = () => {
       <div className="container mx-auto max-w-[80vw] md:max-w-[70vw]">
 
         {/* Header */}
-        <div className="text-center mb-12">
-          <motion.h2
+        <div className="mb-12">
+          <motion.div
             initial={{ opacity: 0, y: -12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl font-extrabold inline-block"
+            className="flex items-baseline gap-4 border-b border-white/[0.08] pb-4"
           >
-            {t('projects.title')}
-            <span className="block h-[3px] w-1/3 bg-gradient-to-r from-blue-500 to-violet-500 mt-2 mx-auto rounded-full" />
-          </motion.h2>
+            <span className="font-mono text-sm text-acid">01 /</span>
+            <h2 className="font-display uppercase text-3xl sm:text-5xl tracking-wide text-ink">
+              {t('projects.title')}
+            </h2>
+          </motion.div>
         </div>
 
         {/* Filter Tabs */}
@@ -82,28 +84,28 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15, duration: 0.4 }}
-          className="flex justify-center mb-12"
+          className="flex flex-wrap gap-2 mb-12"
         >
-          <div className="flex gap-1 bg-white/[0.04] border border-white/[0.08] rounded-xl p-1">
-            {TABS.map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveFilter(tab.id)}
-                className={`relative px-5 py-2 text-sm font-medium rounded-lg transition-colors duration-200 cursor-pointer ${
-                  activeFilter === tab.id ? 'text-white' : 'text-gray-500 hover:text-gray-300'
-                }`}
-              >
-                {activeFilter === tab.id && (
-                  <motion.span
-                    layoutId="activeTab"
-                    className="absolute inset-0 bg-white/10 rounded-lg"
-                    transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
-                  />
-                )}
-                <span className="relative z-10">{t(tab.labelKey)}</span>
-              </button>
-            ))}
-          </div>
+          {TABS.map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveFilter(tab.id)}
+              className={`relative border px-4 py-2 font-mono text-xs uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
+                activeFilter === tab.id
+                  ? 'border-acid text-black'
+                  : 'border-white/[0.10] text-muted hover:text-ink hover:border-white/25'
+              }`}
+            >
+              {activeFilter === tab.id && (
+                <motion.span
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-acid"
+                  transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
+                />
+              )}
+              <span className="relative z-10">{t(tab.labelKey)}</span>
+            </button>
+          ))}
         </motion.div>
 
         {/* Grid */}
@@ -138,10 +140,10 @@ const ProjectsSection = () => {
                   >
                     <Link href={`/projects/${project.id}`}>
                       <div
-                        className={`group relative rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.02] transition-all duration-300 ${primary.cardHoverBorder}`}
+                        className={`group relative overflow-hidden border border-white/[0.08] bg-white/[0.02] transition-all duration-300 ${primary.cardHoverBorder}`}
                       >
                         {/* Image */}
-                        <div className="relative overflow-hidden h-52 sm:h-64 bg-[#080c14]">
+                        <div className="relative overflow-hidden h-52 sm:h-64 bg-[#0d0d0f]">
                           <Image
                             src={project.image}
                             alt={project.title}
@@ -158,7 +160,7 @@ const ProjectsSection = () => {
                               return (
                                 <span
                                   key={c}
-                                  className={`flex items-center gap-1.5 ${m.badgeBg} ${m.textColor} border ${m.badgeBorder} text-xs px-3 py-1 rounded-full backdrop-blur-sm font-medium`}
+                                  className={`flex items-center gap-1.5 ${m.badgeBg} ${m.textColor} border ${m.badgeBorder} font-mono text-[10px] tracking-wider px-2.5 py-1 backdrop-blur-sm`}
                                 >
                                   <Icon size={11} />
                                   {m.label}
@@ -169,18 +171,18 @@ const ProjectsSection = () => {
                         </div>
 
                         {/* Info */}
-                        <div className="p-5 sm:p-6">
+                        <div className="p-5 sm:p-6 border-t border-white/[0.06]">
                           <div className="flex items-start justify-between gap-3 mb-2">
-                            <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
+                            <h3 className="text-base sm:text-lg font-bold text-ink leading-tight">
                               {project.title}
                             </h3>
                             <ArrowRight
                               size={16}
-                              className={`shrink-0 mt-0.5 ${primary.textColor} opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200`}
+                              className="shrink-0 mt-0.5 text-acid opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200"
                             />
                           </div>
 
-                          <p className="text-gray-500 text-sm mb-5 line-clamp-2 leading-relaxed">
+                          <p className="text-muted text-sm mb-5 line-clamp-2 leading-relaxed">
                             {t(`projects.${project.description}`)}
                           </p>
 
@@ -188,13 +190,13 @@ const ProjectsSection = () => {
                             {project.tags.slice(0, 4).map((tag, i) => (
                               <span
                                 key={i}
-                                className="bg-white/[0.05] text-gray-400 px-2.5 py-1 rounded-md text-xs border border-white/[0.06] font-mono"
+                                className="bg-white/[0.04] text-muted px-2.5 py-1 text-xs border border-white/[0.06] font-mono"
                               >
                                 {tag}
                               </span>
                             ))}
                             {project.tags.length > 4 && (
-                              <span className="text-gray-600 text-xs self-center">
+                              <span className="text-muted/60 font-mono text-xs self-center">
                                 +{project.tags.length - 4}
                               </span>
                             )}

@@ -1,25 +1,26 @@
-/* From Uiverse.io by risabbir */
+/* From Uiverse.io by risabbir — restyled for AI Lab theme */
 .nebula-input {
     position: relative;
 
     input, textarea {
         width: 100%;
-        padding: 15px;
-        border: 2px solid #2a2a3a;
-        background: #00000f;
-        color: white;
-        font-size: 16px;
+        padding: 14px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.02);
+        color: #e8e8e6;
+        font-size: 15px;
+        font-family: var(--font-jbmono), monospace;
         outline: none;
-        border-radius: 8px;
-        transition: all 0.4s ease-out;
+        border-radius: 0;
+        transition: all 0.3s ease-out;
+
+        &::placeholder {
+            color: #8a8a85;
+        }
 
         &:focus {
-            border-color: #51a2ff;
-            box-shadow:
-                0 2px 4px #25305d,
-                0 5 10 #25305d,
-                0 10 20px #25305d,
-                0 15px 30px #25305d;
+            border-color: rgba(198, 242, 78, 0.6);
+            box-shadow: 0 0 0 1px rgba(198, 242, 78, 0.2), 0 0 20px rgba(198, 242, 78, 0.08);
         }
 
         &:focus~.nebula-particle {
@@ -48,7 +49,7 @@
     0% {
         transform: translate(0, -50%) scale(0.8);
         opacity: 0;
-        background: #51a2ff;
+        background: #c6f24e;
     }
 
     20% {
@@ -58,6 +59,6 @@
     100% {
         transform: translate(calc(var(--x) * 140px), calc(var(--y) * 35px)) scale(1.1);
         opacity: 0;
-        background: #6df2ff;
+        background: #e2ff8a;
     }
 }

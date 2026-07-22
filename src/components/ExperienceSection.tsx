@@ -24,22 +24,24 @@ const ExperienceSection = () => {
         <section className="py-24 px-6" id="experience">
             <div className="container mx-auto max-w-[80vw] md:max-w-[70vw]">
 
-                <div className="text-center mb-16">
-                    <motion.h2
+                <div className="mb-16">
+                    <motion.div
                         initial={{ opacity: 0, y: -12 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl font-extrabold inline-block"
+                        className="flex items-baseline gap-4 border-b border-white/[0.08] pb-4"
                     >
-                        {t("experience.title")}
-                        <span className="block h-[3px] w-1/3 bg-gradient-to-r from-blue-500 to-violet-500 mt-2 mx-auto rounded-full" />
-                    </motion.h2>
+                        <span className="font-mono text-sm text-acid">02 /</span>
+                        <h2 className="font-display uppercase text-3xl sm:text-5xl tracking-wide text-ink">
+                            {t("experience.title")}
+                        </h2>
+                    </motion.div>
                 </div>
 
                 <div className="relative">
-                    {/* Gradient vertical line */}
-                    <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-indigo-500 to-violet-500 rounded-full" />
+                    {/* Vertical line */}
+                    <div className="absolute left-4 top-0 bottom-0 w-px bg-white/[0.12]" />
 
                     <div className="space-y-10">
                         {experience.map((exp, index) => (
@@ -51,21 +53,21 @@ const ExperienceSection = () => {
                                 transition={{ duration: 0.5, delay: index * 0.15 }}
                                 className="relative pl-12"
                             >
-                                {/* Timeline dot */}
-                                <div className="absolute left-[10px] top-6 w-3.5 h-3.5 bg-blue-500 rounded-full ring-4 ring-blue-500/20 ring-offset-2 ring-offset-black" />
+                                {/* Timeline marker */}
+                                <div className="absolute left-[11px] top-7 w-2.5 h-2.5 bg-acid rotate-45 shadow-[0_0_12px_rgba(198,242,78,0.4)]" />
 
                                 {/* Card */}
-                                <div className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 transition-colors duration-200 hover:border-white/[0.14]">
+                                <div className="bg-white/[0.02] border border-white/[0.08] p-6 transition-colors duration-200 hover:border-acid/30">
                                     <div className="flex items-start justify-between gap-4 mb-4">
                                         <div className="min-w-0">
-                                            <h3 className="text-lg sm:text-xl font-semibold text-white">{t(exp.title)}</h3>
-                                            <p className="text-sm text-blue-400 mt-0.5 font-medium">{t(exp.company)}</p>
+                                            <h3 className="text-lg sm:text-xl font-semibold text-ink">{t(exp.title)}</h3>
+                                            <p className="text-sm text-acid mt-0.5 font-mono">{t(exp.company)}</p>
                                         </div>
-                                        <span className="self-start shrink-0 whitespace-nowrap rounded-full bg-white/[0.05] border border-white/[0.08] px-3 py-1 text-xs text-gray-400">
+                                        <span className="self-start shrink-0 whitespace-nowrap bg-white/[0.04] border border-white/[0.08] px-3 py-1 font-mono text-xs text-muted">
                                             {t(exp.date)}
                                         </span>
                                     </div>
-                                    <p className="text-gray-400 text-sm leading-relaxed">{t(exp.description)}</p>
+                                    <p className="text-muted text-sm leading-relaxed">{t(exp.description)}</p>
                                 </div>
                             </motion.div>
                         ))}

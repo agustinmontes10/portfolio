@@ -157,7 +157,7 @@ const SkillsSection = () => {
                 <div className="text-center mb-12 sm:mb-16">
                     <h2 className="text-3xl sm:text-4xl font-extrabold relative inline-block">
                         {t('skills.title')}
-                        <span className="block h-1 w-1/3 bg-blue-400 mt-2 mx-auto rounded" />
+                        <span className="block h-1 w-1/3 bg-acid mt-2 mx-auto" />
                     </h2>
                 </div>
 
@@ -186,7 +186,7 @@ const SkillsSection = () => {
                         <div className="flex gap-6 sm:gap-10 justify-center p-6 sm:p-12 flex-wrap">
                             {skills[section].map((skill, index) => (
                                 <div key={index} className="flex flex-col items-center w-[40%] sm:w-auto">
-                                    <div className="text-blue-400 mb-3 w-10 sm:w-12 animate-bounce">
+                                    <div className="text-acid mb-3 w-10 sm:w-12 animate-bounce">
                                         {skill.icon}
                                     </div>
                                     <h3 className="text-sm sm:text-xl font-medium text-center">{skill.title}</h3>

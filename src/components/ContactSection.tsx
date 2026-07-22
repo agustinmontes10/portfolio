@@ -1,9 +1,17 @@
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CustomInput from "./CustomInput";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+
+const terminalLines = [
+    { prompt: "$", text: "./contact --init", color: "text-ink" },
+    { prompt: ">", text: "loading profile ... ok", color: "text-muted" },
+    { prompt: ">", text: "name: agustin_montes", color: "text-muted" },
+    { prompt: ">", text: "role: ai_developer", color: "text-muted" },
+    { prompt: ">", text: "location: argentina [gmt-3]", color: "text-muted" },
+    { prompt: ">", text: "status: ● available_for_work", color: "text-acid" },
+    { prompt: ">", text: "response_time: <24h", color: "text-muted" },
+];
 
 const ContactSection = () => {
     const { t } = useTranslation();
@@ -14,14 +22,6 @@ const ContactSection = () => {
         message: "",
     });
     const [sent, setSent] = useState(false);
-    const [animationData, setAnimationData] = useState(null);
-
-    useEffect(() => {
-        fetch("/assets/contactAnimation.json")
-            .then((res) => res.json())
-            .then((data) => setAnimationData(data))
-            .catch((err) => console.error("Error loading animation:", err));
-    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -49,17 +49,19 @@ const ContactSection = () => {
         <section className="py-24 px-6" id="contact">
             <div className="container mx-auto max-w-[80vw] md:max-w-[70vw] flex flex-col items-center">
 
-                <div className="text-center mb-16">
-                    <motion.h2
+                <div className="w-full mb-16">
+                    <motion.div
                         initial={{ opacity: 0, y: -12 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl font-extrabold inline-block"
+                        className="flex items-baseline gap-4 border-b border-white/[0.08] pb-4"
                     >
-                        {t("contact.title")}
-                        <span className="block h-[3px] w-1/3 bg-gradient-to-r from-blue-500 to-violet-500 mt-2 mx-auto rounded-full" />
-                    </motion.h2>
+                        <span className="font-mono text-sm text-acid">03 /</span>
+                        <h2 className="font-display uppercase text-3xl sm:text-5xl tracking-wide text-ink">
+                            {t("contact.title")}
+                        </h2>
+                    </motion.div>
                 </div>
 
                 <div className="flex flex-col-reverse w-full lg:flex-row gap-10 items-center justify-between">
@@ -70,7 +72,7 @@ const ContactSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 w-full max-w-[600px]"
+                        className="bg-white/[0.02] border border-white/[0.08] p-8 w-full max-w-[600px]"
                     >
                         <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
@@ -119,13 +121,13 @@ const ContactSection = () => {
 
                             <button
                                 type="submit"
-                                className="sm:col-span-2 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-medium py-3 rounded-xl transition-all duration-200 cursor-pointer"
+                                className="sm:col-span-2 bg-acid hover:bg-[#d4ff5e] text-black font-mono text-xs uppercase tracking-widest py-3.5 transition-all duration-200 hover:shadow-[0_0_24px_rgba(198,242,78,0.25)] cursor-pointer"
                             >
                                 {t("contact.send")}
                             </button>
 
                             {sent && (
-                                <p className="sm:col-span-2 text-center text-green-400 text-sm">
+                                <p className="sm:col-span-2 text-center text-acid font-mono text-sm">
                                     {t("contact.thanks")}
                                 </p>
                             )}
@@ -141,7 +143,7 @@ const ContactSection = () => {
                         className="flex flex-col items-center text-center max-w-md"
                     >
                         <p className="text-xl font-semibold mb-1">{t("contact.project_question")}</p>
-                        <p className="text-xl font-semibold mb-8 text-blue-400">{t("contact.contactme")}</p>
+                        <p className="text-xl font-semibold mb-8 text-acid">{t("contact.contactme")}</p>
 
                         <div className="flex gap-6 mb-8">
                             <a
@@ -177,11 +179,55 @@ const ContactSection = () => {
                             </a>
                         </div>
 
-                        {animationData && (
-                            <div className="w-full max-w-[280px] md:max-w-[420px]">
-                                <Lottie animationData={animationData} loop={true} />
+                        {/* Fake terminal */}
+                        <div className="w-full max-w-[420px] border border-white/[0.12] bg-[#0d0d0f] text-left shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                            {/* Title bar */}
+                            <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.08] bg-white/[0.02]">
+                                <div className="flex gap-1.5">
+                                    <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                                    <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                                    <span className="w-2.5 h-2.5 rounded-full bg-acid/60" />
+                                </div>
+                                <span className="font-mono text-[10px] uppercase tracking-widest text-muted">contact.sh</span>
                             </div>
-                        )}
+
+                            {/* Terminal body */}
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, amount: 0.4 }}
+                                variants={{
+                                    hidden: {},
+                                    visible: { transition: { staggerChildren: 0.18, delayChildren: 0.3 } },
+                                }}
+                                className="p-4 sm:p-5 font-mono text-xs sm:text-sm leading-relaxed"
+                            >
+                                {terminalLines.map((line, i) => (
+                                    <motion.p
+                                        key={i}
+                                        variants={{
+                                            hidden: { opacity: 0, x: -8 },
+                                            visible: { opacity: 1, x: 0, transition: { duration: 0.25 } },
+                                        }}
+                                        className={line.color}
+                                    >
+                                        <span className="text-acid mr-2">{line.prompt}</span>
+                                        {line.text}
+                                    </motion.p>
+                                ))}
+                                <motion.p
+                                    variants={{
+                                        hidden: { opacity: 0 },
+                                        visible: { opacity: 1, transition: { delay: 0.2 } },
+                                    }}
+                                    className="text-ink mt-2"
+                                >
+                                    <span className="text-acid mr-2">$</span>
+                                    send_message
+                                    <span className="terminal-cursor ml-1.5" aria-hidden="true" />
+                                </motion.p>
+                            </motion.div>
+                        </div>
                     </motion.div>
                 </div>
 

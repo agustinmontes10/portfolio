@@ -12,6 +12,14 @@ export interface ProjectProps {
     deployment: string;
     linkGithub: string;
     categories: ProjectCategory[];
+    /** i18n keys under "projects." — rendered as a problem/solution/results case study */
+    caseStudy?: {
+        problem: string;
+        solution: string;
+        results: string[];
+    };
+    /** Ordered pipeline of components, rendered as an architecture diagram */
+    architecture?: string[];
 }
 
 export const projects: ProjectProps[] = [
@@ -31,6 +39,12 @@ export const projects: ProjectProps[] = [
         deployment: 'https://aestheticapp.com.ar/',
         linkGithub: '',
         categories: ['web', 'automation'],
+        caseStudy: {
+            problem: "project6.problem",
+            solution: "project6.solution",
+            results: ["project6.result1", "project6.result2", "project6.result3"],
+        },
+        architecture: ["Next.js", "Hono API", "PostgreSQL", "n8n", "WhatsApp API", "MercadoPago"],
     },
     {
         id: 8,
@@ -47,6 +61,12 @@ export const projects: ProjectProps[] = [
         deployment: '',
         linkGithub: '',
         categories: ['ai-agent'],
+        caseStudy: {
+            problem: "project8.problem",
+            solution: "project8.solution",
+            results: ["project8.result1", "project8.result2", "project8.result3"],
+        },
+        architecture: ["WhatsApp", "n8n", "AI Agent · OpenAI", "Tools", "PostgreSQL"],
     },
     {
         id: 7,
@@ -61,6 +81,12 @@ export const projects: ProjectProps[] = [
         deployment: '',
         linkGithub: '',
         categories: ['automation'],
+        caseStudy: {
+            problem: "project7.problem",
+            solution: "project7.solution",
+            results: ["project7.result1", "project7.result2", "project7.result3"],
+        },
+        architecture: ["WhatsApp", "n8n", "Chatwoot"],
     },
     {
         id: 9,
@@ -77,6 +103,12 @@ export const projects: ProjectProps[] = [
         deployment: '',
         linkGithub: '',
         categories: ['ai-agent'],
+        caseStudy: {
+            problem: "project9.problem",
+            solution: "project9.solution",
+            results: ["project9.result1", "project9.result2", "project9.result3"],
+        },
+        architecture: ["WhatsApp", "Whisper", "AI Agent · OpenAI", "PostgreSQL", "MercadoPago"],
     },
     {
         id: 3,

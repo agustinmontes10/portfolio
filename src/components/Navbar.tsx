@@ -18,6 +18,24 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Scroll spy: highlight the section currently in view
+  useEffect(() => {
+    const ids = ["home", "skills", "projects", "experience", "contact"]
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
+        })
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    )
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
+
   const navSections = [
     { label: t("navbar.home"), id: "home" },
     { label: t("navbar.skills"), id: "skills" },
@@ -36,23 +54,25 @@ const Navbar = () => {
       <nav
         className={`fixed w-full z-50 transition-all duration-300 navbar backdrop-blur-xl ${
           scrolled
-            ? "bg-black/70 border-b border-white/[0.08] shadow-sm"
+            ? "bg-[#0a0a0b]/80 border-b border-white/[0.06]"
             : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
 
-            <div className="flex items-center gap-2.5">
+            <a href="#home" className="flex items-center gap-2.5 group">
               <Image
                 src="/assets/avatar.png"
                 width={26}
                 height={26}
                 alt=""
-                className="rounded-full opacity-90"
+                className="rounded-full opacity-90 grayscale group-hover:grayscale-0 transition-all"
               />
-              <span className="text-lg font-bold tracking-tight">Agustin Montes</span>
-            </div>
+              <span className="font-mono text-sm tracking-tight text-ink">
+                agustin<span className="text-acid">.</span>montes
+              </span>
+            </a>
 
             {/* Hamburger */}
             <button
@@ -89,17 +109,18 @@ const Navbar = () => {
 
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-1">
-              {navSections.map((item) => (
+              {navSections.map((item, i) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={() => handleNavClick(item.id)}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors cursor-pointer ${
+                  className={`relative px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors cursor-pointer ${
                     activeSection === item.id
-                      ? "text-blue-400"
-                      : "text-gray-400 hover:text-white"
+                      ? "text-acid"
+                      : "text-muted hover:text-ink"
                   }`}
                 >
+                  <span className="text-muted/50 mr-1">0{i + 1}</span>
                   {item.label}
                 </a>
               ))}
@@ -120,7 +141,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-40 flex flex-col items-center justify-center gap-8"
+            className="md:hidden fixed inset-0 bg-[#0a0a0b]/95 backdrop-blur-2xl z-40 flex flex-col items-center justify-center gap-8"
           >
             {navSections.map((item, i) => (
               <motion.a
@@ -130,12 +151,13 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.3 }}
-                className={`text-2xl font-semibold cursor-pointer transition-colors ${
+                className={`flex items-baseline gap-3 text-3xl font-display uppercase tracking-wide cursor-pointer transition-colors ${
                   activeSection === item.id
-                    ? "text-blue-400"
-                    : "text-gray-300 hover:text-white"
+                    ? "text-acid"
+                    : "text-ink hover:text-acid"
                 }`}
               >
+                <span className="font-mono text-xs text-muted">0{i + 1}</span>
                 {item.label}
               </motion.a>
             ))}

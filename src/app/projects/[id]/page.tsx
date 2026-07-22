@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowRight, ExternalLink, Github, Globe, Zap, Bot } from "lucide-react";
 import { ProjectProps, ProjectCategory, projects } from "../../../../data/projectsData";
+import ArchitectureDiagram from "@/components/ArchitectureDiagram";
 import Background from "@/components/Background";
 
 const categoryMeta: Record<ProjectCategory, {
@@ -18,25 +19,25 @@ const categoryMeta: Record<ProjectCategory, {
     border: string;
 }> = {
     web: {
-        label: "Web Dev",
+        label: "WEB",
         icon: Globe,
-        text: "text-blue-400",
-        bg: "bg-blue-500/10",
-        border: "border-blue-500/20",
+        text: "text-ink",
+        bg: "bg-white/[0.04]",
+        border: "border-white/20",
     },
     automation: {
-        label: "Automation",
+        label: "AUTOMATION",
         icon: Zap,
-        text: "text-violet-400",
-        bg: "bg-violet-500/10",
-        border: "border-violet-500/20",
+        text: "text-muted",
+        bg: "bg-white/[0.04]",
+        border: "border-white/10",
     },
     'ai-agent': {
-        label: "AI Agent",
+        label: "AI_AGENT",
         icon: Bot,
-        text: "text-emerald-400",
-        bg: "bg-emerald-500/10",
-        border: "border-emerald-500/20",
+        text: "text-acid",
+        bg: "bg-acid/[0.06]",
+        border: "border-acid/30",
     },
 };
 
@@ -56,10 +57,10 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
 
     if (loading) {
         return (
-            <div className="relative min-h-screen bg-[#060609] text-gray-300 flex items-center justify-center">
+            <div className="relative min-h-screen bg-[#0a0a0b] text-ink flex items-center justify-center">
                 <Background />
                 <div className="relative z-10 flex flex-col items-center gap-4">
-                    <div className="w-8 h-8 border-2 border-white/10 border-t-blue-400 rounded-full animate-spin" />
+                    <div className="w-8 h-8 border-2 border-white/10 border-t-acid rounded-full animate-spin" />
                     <p className="text-sm text-gray-500">{t("projectDetail.loading")}</p>
                 </div>
             </div>
@@ -68,13 +69,13 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
 
     if (!project) {
         return (
-            <div className="relative min-h-screen bg-[#060609] text-gray-300 flex items-center justify-center">
+            <div className="relative min-h-screen bg-[#0a0a0b] text-ink flex items-center justify-center">
                 <Background />
                 <div className="relative z-10 flex flex-col items-center gap-6 text-center px-6">
                     <p className="text-2xl font-semibold text-white">{t("projectDetail.notFound")}</p>
                     <Link
                         href="/#projects"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.05] hover:bg-white/10 border border-white/[0.08] rounded-full transition-all text-sm"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.05] hover:bg-white/10 border border-white/[0.08] font-mono text-xs uppercase tracking-wider transition-all"
                     >
                         <ArrowLeft size={16} />
                         {t("projectDetail.backToProjects")}
@@ -85,7 +86,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
     }
 
     return (
-        <div className="relative min-h-screen bg-[#060609] text-gray-300">
+        <div className="relative min-h-screen bg-[#0a0a0b] text-ink">
             <Background />
 
             <div className="relative z-10 flex flex-col min-h-screen">
@@ -94,7 +95,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                     {/* Back nav */}
                     <Link
                         href="/#projects"
-                        className="inline-flex items-center gap-2 mb-12 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] text-sm text-gray-400 hover:text-white hover:bg-white/[0.08] transition-all"
+                        className="inline-flex items-center gap-2 mb-12 px-4 py-2 bg-white/[0.04] border border-white/[0.08] font-mono text-xs uppercase tracking-wider text-muted hover:text-ink hover:border-acid/40 transition-all"
                     >
                         <ArrowLeft size={16} />
                         {t("projectDetail.back")}
@@ -106,7 +107,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                         <div className="w-full max-w-[420px] mx-auto lg:mx-0">
                             <Swiper effect="cards" grabCursor modules={[EffectCards]}>
                                 {project.images.map((image, index) => (
-                                    <SwiperSlide key={index} className="rounded-2xl overflow-hidden border border-white/10">
+                                    <SwiperSlide key={index} className="overflow-hidden border border-white/10">
                                         <Image
                                             width={500}
                                             height={500}
@@ -129,7 +130,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                                     return (
                                         <span
                                             key={c}
-                                            className={`inline-flex items-center gap-1.5 ${m.bg} ${m.text} border ${m.border} text-xs px-3 py-1 rounded-full font-medium`}
+                                            className={`inline-flex items-center gap-1.5 ${m.bg} ${m.text} border ${m.border} font-mono text-[10px] tracking-wider px-2.5 py-1`}
                                         >
                                             <Icon size={12} />
                                             {m.label}
@@ -138,7 +139,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                                 })}
                             </div>
 
-                            <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
+                            <h1 className="font-display uppercase text-4xl sm:text-5xl tracking-wide text-ink leading-tight">
                                 {project.title}
                             </h1>
 
@@ -181,7 +182,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                                         href={project.deployment}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white text-sm font-medium transition-all"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-acid text-black font-mono text-xs uppercase tracking-widest hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(198,242,78,0.25)] transition-all"
                                     >
                                         <ExternalLink size={16} />
                                         {t("projectDetail.viewLive")}
@@ -192,7 +193,7 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                                         href={project.linkGithub}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/10 border border-white/[0.08] text-gray-300 hover:text-white text-sm font-medium transition-all"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-white/[0.12] hover:border-acid/50 text-muted hover:text-ink font-mono text-xs uppercase tracking-widest transition-all"
                                     >
                                         <Github size={16} />
                                         {t("projectDetail.sourceCode")}
@@ -202,6 +203,61 @@ function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
                             )}
                         </div>
                     </div>
+
+                    {/* Architecture */}
+                    {project.architecture && (
+                        <div className="mt-16 pt-10 border-t border-white/[0.06]">
+                            <h2 className="font-mono text-xs uppercase tracking-widest text-muted mb-6">
+                                <span className="text-acid mr-2">//</span>
+                                {t("projectDetail.architecture")}
+                            </h2>
+                            <ArchitectureDiagram nodes={project.architecture} />
+                        </div>
+                    )}
+
+                    {/* Case study */}
+                    {project.caseStudy && (
+                        <div className="mt-16 pt-10 border-t border-white/[0.06]">
+                            <h2 className="font-mono text-xs uppercase tracking-widest text-muted mb-8">
+                                <span className="text-acid mr-2">//</span>
+                                {t("projectDetail.caseStudy")}
+                            </h2>
+
+                            <div className="grid md:grid-cols-3 gap-6">
+                                <div className="border border-white/[0.08] bg-white/[0.02] p-6">
+                                    <h3 className="font-mono text-[11px] uppercase tracking-widest text-muted mb-4">
+                                        01 · {t("projectDetail.problem")}
+                                    </h3>
+                                    <p className="text-gray-400 text-sm leading-relaxed">
+                                        {t(`projects.${project.caseStudy.problem}`)}
+                                    </p>
+                                </div>
+
+                                <div className="border border-white/[0.08] bg-white/[0.02] p-6">
+                                    <h3 className="font-mono text-[11px] uppercase tracking-widest text-muted mb-4">
+                                        02 · {t("projectDetail.solution")}
+                                    </h3>
+                                    <p className="text-gray-400 text-sm leading-relaxed">
+                                        {t(`projects.${project.caseStudy.solution}`)}
+                                    </p>
+                                </div>
+
+                                <div className="border border-acid/25 bg-acid/[0.03] p-6">
+                                    <h3 className="font-mono text-[11px] uppercase tracking-widest text-acid mb-4">
+                                        03 · {t("projectDetail.results")}
+                                    </h3>
+                                    <ul className="space-y-3">
+                                        {project.caseStudy.results.map((r) => (
+                                            <li key={r} className="flex gap-2.5 text-gray-400 text-sm leading-relaxed">
+                                                <span className="text-acid font-mono shrink-0">+</span>
+                                                {t(`projects.${r}`)}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* Back to all projects */}
                     <div className="mt-20 pt-10 border-t border-white/[0.06]">

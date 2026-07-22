@@ -60,18 +60,18 @@ const Background = () => {
     return (
         <div
             ref={ref}
-            className="fixed inset-0 z-0 bg-[#060609]"
+            className="fixed inset-0 z-0 bg-[#0a0a0b]"
             style={{ "--mx": "50vw", "--my": "15vh" } as React.CSSProperties}
         >
             {/* Base grid — subtle, faded toward the edges */}
             <div className="absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_20%,black,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_80%_60%_at_50%_20%,black,transparent_75%)]" />
 
-            {/* Cursor spotlight — soft blue glow trailing the pointer */}
+            {/* Cursor spotlight — faint acid glow trailing the pointer */}
             <div
                 className="absolute inset-0"
                 style={{
                     background:
-                        "radial-gradient(520px circle at var(--mx) var(--my), rgba(59,130,246,0.13), transparent 65%)",
+                        "radial-gradient(520px circle at var(--mx) var(--my), rgba(198,242,78,0.07), transparent 65%)",
                 }}
             />
 
@@ -80,21 +80,12 @@ const Background = () => {
                 className="absolute inset-0"
                 style={{
                     backgroundImage:
-                        "linear-gradient(to right, rgba(96,165,250,0.45) 1px, transparent 1px), linear-gradient(to bottom, rgba(96,165,250,0.45) 1px, transparent 1px)",
+                        "linear-gradient(to right, rgba(198,242,78,0.30) 1px, transparent 1px), linear-gradient(to bottom, rgba(198,242,78,0.30) 1px, transparent 1px)",
                     backgroundSize: "54px 54px",
                     maskImage:
                         "radial-gradient(260px circle at var(--mx) var(--my), black 0%, transparent 70%)",
                     WebkitMaskImage:
                         "radial-gradient(260px circle at var(--mx) var(--my), black 0%, transparent 70%)",
-                }}
-            />
-
-            {/* Anchored violet glow for depth at the bottom of the viewport */}
-            <div
-                className="absolute inset-0"
-                style={{
-                    background:
-                        "radial-gradient(ellipse 60% 50% at 50% 112%, rgba(139,92,246,0.15), transparent 70%)",
                 }}
             />
 
